@@ -1,0 +1,520 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		23057D031C078AAD009DECF6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 23057D021C078AAD009DECF6 /* main.m */; };
+		23057D061C078AAD009DECF6 /* GTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 23057D051C078AAD009DECF6 /* GTAppDelegate.m */; };
+		23057D091C078AAD009DECF6 /* GTMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23057D081C078AAD009DECF6 /* GTMainViewController.m */; };
+		23057D0E1C078AAD009DECF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23057D0D1C078AAD009DECF6 /* Assets.xcassets */; };
+		23057D111C078AAD009DECF6 /* GTLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23057D0F1C078AAD009DECF6 /* GTLaunchScreen.storyboard */; };
+		23057D1C1C078AAD009DECF6 /* GametimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23057D1B1C078AAD009DECF6 /* GametimeTests.m */; };
+		23057D271C078AAD009DECF6 /* GametimeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23057D261C078AAD009DECF6 /* GametimeUITests.m */; };
+		23057D361C078E0E009DECF6 /* GTNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23057D351C078E0E009DECF6 /* GTNavigationController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		23057D181C078AAD009DECF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 23057CF61C078AAD009DECF6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 23057CFD1C078AAD009DECF6;
+			remoteInfo = Gametime;
+		};
+		23057D231C078AAD009DECF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 23057CF61C078AAD009DECF6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 23057CFD1C078AAD009DECF6;
+			remoteInfo = Gametime;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		23057CFE1C078AAD009DECF6 /* Gametime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gametime.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		23057D021C078AAD009DECF6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		23057D041C078AAD009DECF6 /* GTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTAppDelegate.h; sourceTree = "<group>"; };
+		23057D051C078AAD009DECF6 /* GTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTAppDelegate.m; sourceTree = "<group>"; };
+		23057D071C078AAD009DECF6 /* GTMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTMainViewController.h; sourceTree = "<group>"; };
+		23057D081C078AAD009DECF6 /* GTMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GTMainViewController.m; sourceTree = "<group>"; };
+		23057D0D1C078AAD009DECF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		23057D101C078AAD009DECF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/GTLaunchScreen.storyboard; sourceTree = "<group>"; };
+		23057D121C078AAD009DECF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		23057D171C078AAD009DECF6 /* GametimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GametimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		23057D1B1C078AAD009DECF6 /* GametimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GametimeTests.m; sourceTree = "<group>"; };
+		23057D1D1C078AAD009DECF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		23057D221C078AAD009DECF6 /* GametimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GametimeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		23057D261C078AAD009DECF6 /* GametimeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GametimeUITests.m; sourceTree = "<group>"; };
+		23057D281C078AAD009DECF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		23057D341C078E0E009DECF6 /* GTNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTNavigationController.h; sourceTree = "<group>"; };
+		23057D351C078E0E009DECF6 /* GTNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTNavigationController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		23057CFB1C078AAD009DECF6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		23057D141C078AAD009DECF6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		23057D1F1C078AAD009DECF6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		23057CF51C078AAD009DECF6 = {
+			isa = PBXGroup;
+			children = (
+				23057D001C078AAD009DECF6 /* Gametime */,
+				23057D1A1C078AAD009DECF6 /* GametimeTests */,
+				23057D251C078AAD009DECF6 /* GametimeUITests */,
+				23057CFF1C078AAD009DECF6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		23057CFF1C078AAD009DECF6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				23057CFE1C078AAD009DECF6 /* Gametime.app */,
+				23057D171C078AAD009DECF6 /* GametimeTests.xctest */,
+				23057D221C078AAD009DECF6 /* GametimeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		23057D001C078AAD009DECF6 /* Gametime */ = {
+			isa = PBXGroup;
+			children = (
+				23057D041C078AAD009DECF6 /* GTAppDelegate.h */,
+				23057D051C078AAD009DECF6 /* GTAppDelegate.m */,
+				23057D341C078E0E009DECF6 /* GTNavigationController.h */,
+				23057D351C078E0E009DECF6 /* GTNavigationController.m */,
+				23057D071C078AAD009DECF6 /* GTMainViewController.h */,
+				23057D081C078AAD009DECF6 /* GTMainViewController.m */,
+				23057D0D1C078AAD009DECF6 /* Assets.xcassets */,
+				23057D0F1C078AAD009DECF6 /* GTLaunchScreen.storyboard */,
+				23057D011C078AAD009DECF6 /* Supporting Files */,
+			);
+			path = Gametime;
+			sourceTree = "<group>";
+		};
+		23057D011C078AAD009DECF6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				23057D121C078AAD009DECF6 /* Info.plist */,
+				23057D021C078AAD009DECF6 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		23057D1A1C078AAD009DECF6 /* GametimeTests */ = {
+			isa = PBXGroup;
+			children = (
+				23057D1B1C078AAD009DECF6 /* GametimeTests.m */,
+				23057D1D1C078AAD009DECF6 /* Info.plist */,
+			);
+			path = GametimeTests;
+			sourceTree = "<group>";
+		};
+		23057D251C078AAD009DECF6 /* GametimeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				23057D261C078AAD009DECF6 /* GametimeUITests.m */,
+				23057D281C078AAD009DECF6 /* Info.plist */,
+			);
+			path = GametimeUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		23057CFD1C078AAD009DECF6 /* Gametime */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 23057D2B1C078AAD009DECF6 /* Build configuration list for PBXNativeTarget "Gametime" */;
+			buildPhases = (
+				23057CFA1C078AAD009DECF6 /* Sources */,
+				23057CFB1C078AAD009DECF6 /* Frameworks */,
+				23057CFC1C078AAD009DECF6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Gametime;
+			productName = Gametime;
+			productReference = 23057CFE1C078AAD009DECF6 /* Gametime.app */;
+			productType = "com.apple.product-type.application";
+		};
+		23057D161C078AAD009DECF6 /* GametimeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 23057D2E1C078AAD009DECF6 /* Build configuration list for PBXNativeTarget "GametimeTests" */;
+			buildPhases = (
+				23057D131C078AAD009DECF6 /* Sources */,
+				23057D141C078AAD009DECF6 /* Frameworks */,
+				23057D151C078AAD009DECF6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				23057D191C078AAD009DECF6 /* PBXTargetDependency */,
+			);
+			name = GametimeTests;
+			productName = GametimeTests;
+			productReference = 23057D171C078AAD009DECF6 /* GametimeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		23057D211C078AAD009DECF6 /* GametimeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 23057D311C078AAD009DECF6 /* Build configuration list for PBXNativeTarget "GametimeUITests" */;
+			buildPhases = (
+				23057D1E1C078AAD009DECF6 /* Sources */,
+				23057D1F1C078AAD009DECF6 /* Frameworks */,
+				23057D201C078AAD009DECF6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				23057D241C078AAD009DECF6 /* PBXTargetDependency */,
+			);
+			name = GametimeUITests;
+			productName = GametimeUITests;
+			productReference = 23057D221C078AAD009DECF6 /* GametimeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		23057CF61C078AAD009DECF6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Julian Weiss";
+				TargetAttributes = {
+					23057CFD1C078AAD009DECF6 = {
+						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = 24X8MVUSCN;
+					};
+					23057D161C078AAD009DECF6 = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = 23057CFD1C078AAD009DECF6;
+					};
+					23057D211C078AAD009DECF6 = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = 23057CFD1C078AAD009DECF6;
+					};
+				};
+			};
+			buildConfigurationList = 23057CF91C078AAD009DECF6 /* Build configuration list for PBXProject "Gametime" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 23057CF51C078AAD009DECF6;
+			productRefGroup = 23057CFF1C078AAD009DECF6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				23057CFD1C078AAD009DECF6 /* Gametime */,
+				23057D161C078AAD009DECF6 /* GametimeTests */,
+				23057D211C078AAD009DECF6 /* GametimeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		23057CFC1C078AAD009DECF6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23057D111C078AAD009DECF6 /* GTLaunchScreen.storyboard in Resources */,
+				23057D0E1C078AAD009DECF6 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		23057D151C078AAD009DECF6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		23057D201C078AAD009DECF6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		23057CFA1C078AAD009DECF6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23057D091C078AAD009DECF6 /* GTMainViewController.m in Sources */,
+				23057D061C078AAD009DECF6 /* GTAppDelegate.m in Sources */,
+				23057D361C078E0E009DECF6 /* GTNavigationController.m in Sources */,
+				23057D031C078AAD009DECF6 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		23057D131C078AAD009DECF6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23057D1C1C078AAD009DECF6 /* GametimeTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		23057D1E1C078AAD009DECF6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23057D271C078AAD009DECF6 /* GametimeUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		23057D191C078AAD009DECF6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 23057CFD1C078AAD009DECF6 /* Gametime */;
+			targetProxy = 23057D181C078AAD009DECF6 /* PBXContainerItemProxy */;
+		};
+		23057D241C078AAD009DECF6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 23057CFD1C078AAD009DECF6 /* Gametime */;
+			targetProxy = 23057D231C078AAD009DECF6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		23057D0F1C078AAD009DECF6 /* GTLaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				23057D101C078AAD009DECF6 /* Base */,
+			);
+			name = GTLaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		23057D291C078AAD009DECF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		23057D2A1C078AAD009DECF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		23057D2C1C078AAD009DECF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Gametime/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.insanj.Gametime;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		23057D2D1C078AAD009DECF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Gametime/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.insanj.Gametime;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		23057D2F1C078AAD009DECF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = GametimeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.insanj.GametimeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gametime.app/Gametime";
+			};
+			name = Debug;
+		};
+		23057D301C078AAD009DECF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = GametimeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.insanj.GametimeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gametime.app/Gametime";
+			};
+			name = Release;
+		};
+		23057D321C078AAD009DECF6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = GametimeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.insanj.GametimeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Gametime;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		23057D331C078AAD009DECF6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = GametimeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.insanj.GametimeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Gametime;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		23057CF91C078AAD009DECF6 /* Build configuration list for PBXProject "Gametime" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23057D291C078AAD009DECF6 /* Debug */,
+				23057D2A1C078AAD009DECF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		23057D2B1C078AAD009DECF6 /* Build configuration list for PBXNativeTarget "Gametime" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23057D2C1C078AAD009DECF6 /* Debug */,
+				23057D2D1C078AAD009DECF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		23057D2E1C078AAD009DECF6 /* Build configuration list for PBXNativeTarget "GametimeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23057D2F1C078AAD009DECF6 /* Debug */,
+				23057D301C078AAD009DECF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		23057D311C078AAD009DECF6 /* Build configuration list for PBXNativeTarget "GametimeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23057D321C078AAD009DECF6 /* Debug */,
+				23057D331C078AAD009DECF6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 23057CF61C078AAD009DECF6 /* Project object */;
+}
