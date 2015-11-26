@@ -26,7 +26,7 @@
     [super viewDidLoad];
     
     self.title = @"Gametime";
-    self.tableView.rowHeight = kGametimeTableViewCellHeight;
+    self.tableView.rowHeight = kGametimeTeamTableViewCellHeight;
     self.tableView.tableFooterView = [UIView new];
     
     [self.tableView registerClass:[GTTeamTableViewCell class] forCellReuseIdentifier:kGametimeTeamTableCellIdentifier];
@@ -137,7 +137,7 @@ static NSString *kGametimeTeamTableCellIdentifier = @"GametimeTeamTableCellIdent
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return kGametimeTableViewCellHeight;
+    return kGametimeTeamTableViewCellHeight;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {

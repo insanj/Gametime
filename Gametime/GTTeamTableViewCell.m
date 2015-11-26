@@ -19,7 +19,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     
     if (self) {
-        CGFloat imageViewWidth = kGametimeTableViewCellHeight + 20.0;
+        CGFloat imageViewWidth = kGametimeTeamTableViewCellHeight + 20.0;
         _teamAvatarView = [[UIImageView alloc] init];
         _teamAvatarView.translatesAutoresizingMaskIntoConstraints = NO;
         _teamAvatarView.contentMode = UIViewContentModeScaleAspectFill;

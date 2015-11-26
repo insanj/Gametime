@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-static CGFloat kGametimeTableViewCellHeight = 70.0;
+static CGFloat kGametimeTeamTableViewCellHeight = 70.0;
 
 @interface GTTeamTableViewCell : UITableViewCell
 
