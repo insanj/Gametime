@@ -27,16 +27,20 @@
     [playerObject setValue:dictionary[@"HeightFeet"] forKey:@"playerHeightFeet"];
     [playerObject setValue:dictionary[@"HeightInches"] forKey:@"playerHeightInches"];
     [playerObject setValue:dictionary[@"Weight"] forKey:@"playerWeight"];
-    [playerObject setValue:dictionary[@"Experience"] forKey:@"playerExperience"];
+    [playerObject setValue:dictionary[@"ExperienceString"] forKey:@"playerExperienceString"];
     [playerObject setValue:dictionary[@"Age"] forKey:@"playerAge"];
     
     [playerObject setValue:dictionary[@"Active"] forKey:@"playerActive"];
     
     [playerObject setValue:dictionary[@"ByeWeek"] forKey:@"playerByeWeek"];
     [playerObject setValue:dictionary[@"UpcomingGameWeek"] forKey:@"playerUpcomingGameWeek"];
-    [playerObject setValue:dictionary[@"UpcomingOpponentPositionRank"] forKey:@"playerUpcomingOpponentPositionRank"];
     
     [playerObject setValue:dictionary[@"UpcomingGameOpponent"] forKey:@"playerUpcomingGameOpponent"];
+    
+    if (![dictionary[@"UpcomingOpponentPositionRank"] isKindOfClass:[NSNull class]]) {
+        [playerObject setValue:dictionary[@"UpcomingOpponentPositionRank"] forKey:@"playerUpcomingOpponentPositionRank"];
+    }
+    
     return playerObject;
 }
 
@@ -49,13 +53,13 @@
              @"Position" : _playerPositionName,
              @"Status" : _playerStatusString,
              @"College" : _playerCollegeName,
-             
+             @"ExperienceString" : _playerExperienceString,
+
              @"PlayerID" : @(_playerIdentifier),
              @"Number" : @(_playerNumber),
              @"HeightFeet" : @(_playerHeightFeet),
              @"HeightInches" : @(_playerHeightInches),
              @"Weight" : @(_playerWeight),
-             @"Experience" : @(_playerExperience),
              @"Age" : @(_playerAge),
              
              @"Active" : @(_playerActive),

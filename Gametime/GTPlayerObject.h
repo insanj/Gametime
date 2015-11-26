@@ -12,9 +12,9 @@
 
 @property (strong, nonatomic, readonly) NSURL *playerPhotoURL;
 
-@property (strong, nonatomic, readonly) NSString *playerTeamAbbreviation, *playerFirstName, *playerLastName, *playerFullName, *playerPositionName, *playerStatusString, *playerCollegeName;
+@property (strong, nonatomic, readonly) NSString *playerTeamAbbreviation, *playerFirstName, *playerLastName, *playerFullName, *playerPositionName, *playerStatusString, *playerCollegeName, *playerExperienceString;
 
-@property (nonatomic, readonly) NSInteger playerIdentifier, playerNumber, playerHeightFeet, playerHeightInches, playerWeight, playerExperience, playerAge;
+@property (nonatomic, readonly) NSInteger playerIdentifier, playerNumber, playerHeightFeet, playerHeightInches, playerWeight, playerAge;
 
 @property (nonatomic, readonly) BOOL playerActive;
 

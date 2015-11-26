@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "GTPlayerObject.h"
 
-static CGFloat kGametimePlayerTableViewCellHeight = 70.0;
+static CGFloat kGametimePlayerTableViewCellHeight = 90.0;
 
 @interface GTPlayerTableViewCell : UITableViewCell
 

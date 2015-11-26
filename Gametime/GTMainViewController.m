@@ -13,6 +13,7 @@
 #import "GTDefaultsManager.h"
 #import "GTAddTeamViewController.h"
 #import "GTNavigationController.h"
+#import "GTTeamViewController.h"
 
 @interface GTMainViewController ()
 
@@ -174,15 +175,13 @@ static NSString *kGametimeTeamTableCellIdentifier = @"GametimeTeamTableCellIdent
     if (indexPath.section == 0 && _gameTimeTeams.count == 0) {
         [self addBarButtonItemTapped];
     }
-}
-
-/*- (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return @[[UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Delete" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+    
+    else if (indexPath.section == 1) {
         GTTeamObject *team = _gameTimeNFLTeams[indexPath.row];
-        [GTDefaultsManager deleteSavedTeam:team];
-        [self setupGametimeTeams];
-    }]];
-}*/
+        GTTeamViewController *nflTeamViewController = [[GTTeamViewController alloc] initWithNFLTeam:team];
+        [self.navigationController pushViewController:nflTeamViewController animated:YES];
+    }
+}
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
     return UITableViewCellEditingStyleDelete;
