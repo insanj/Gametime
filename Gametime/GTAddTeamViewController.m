@@ -10,6 +10,7 @@
 #import "GTTeamObject.h"
 #import "GTDefaultsManager.h"
 #import "CompactConstraint.h"
+#import "GTMainViewController.h"
 
 @interface GTAddTeamViewController () <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -84,6 +85,7 @@
     else {
         GTTeamObject *addTeamObject = [GTTeamObject teamWithName:_teamNameTextField.text abbreviation:_teamAbbreviationTextField.text image:_teamImage];
         [GTDefaultsManager addSavedTeam:addTeamObject];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kGametimeRefreshTeamNotificationName object:nil];
         [self dismissViewControllerAnimated:YES completion:NULL];
     }
 }
@@ -148,13 +150,28 @@
         
         else {
             static NSString *imageCellIdentifier = @"AddTeamGametimeImageIdentifier";
+            static NSInteger imageViewTag = 21231;
             UITableViewCell *imageCell = [tableView dequeueReusableCellWithIdentifier:imageCellIdentifier];
             if (!imageCell) {
                 imageCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:imageCellIdentifier];
                 imageCell.selectionStyle = UITableViewCellSelectionStyleNone;
+                
+                UIImageView *imageView = [[UIImageView alloc] init];
+                imageView.contentMode = UIViewContentModeScaleAspectFit;
+                imageView.tag = imageViewTag;
+                imageView.translatesAutoresizingMaskIntoConstraints = NO;
+                [imageCell.contentView addSubview:imageView];
+                
+                [imageCell.contentView addCompactConstraints:@[@"image.top = super.top",
+                                                               @"image.left = super.left",
+                                                               @"image.right = super.right",
+                                                               @"image.bottom = super.bottom"]
+                                                     metrics:nil
+                                                       views:@{@"image" : imageView}];
             }
             
-            imageCell.imageView.image = _teamImage;
+            UIImageView *imageView = (UIImageView *)[imageCell.contentView viewWithTag:imageViewTag];
+            imageView.image = _teamImage;
             
             return imageCell;
         }

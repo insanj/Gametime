@@ -40,6 +40,14 @@
     [self.refreshControl addTarget:self action:@selector(refreshControlValueChanged:) forControlEvents:UIControlEventValueChanged];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addBarButtonItemTapped)];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupGametimeTeams) name:kGametimeRefreshTeamNotificationName object:nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.tableView reloadData];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -137,44 +145,57 @@ static NSString *kGametimeTeamTableCellIdentifier = @"GametimeTeamTableCellIdent
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) { // fantasy teams
-        if (_gameTimeTeams.count == 0) {
-            static NSString *teamPlaceholderCellIdentifier = @"GametimePlaceholderCellIdentifier";
-            UITableViewCell *placeholderCell = [tableView dequeueReusableCellWithIdentifier:teamPlaceholderCellIdentifier];
-            
-            if (!placeholderCell) {
-                placeholderCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:teamPlaceholderCellIdentifier];
-                placeholderCell.textLabel.textAlignment = NSTextAlignmentCenter;
-                placeholderCell.textLabel.textColor = [UIColor colorWithWhite:0.6 alpha:0.6];
-            }
-            
-            placeholderCell.textLabel.text = @"+ Add A New Fantasy Team";
-            
-            return placeholderCell;
+    if (indexPath.section == 0 && _gameTimeTeams.count == 0) {
+        static NSString *teamPlaceholderCellIdentifier = @"GametimePlaceholderCellIdentifier";
+        UITableViewCell *placeholderCell = [tableView dequeueReusableCellWithIdentifier:teamPlaceholderCellIdentifier];
+        
+        if (!placeholderCell) {
+            placeholderCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:teamPlaceholderCellIdentifier];
+            placeholderCell.textLabel.textAlignment = NSTextAlignmentCenter;
+            placeholderCell.textLabel.textColor = [UIColor colorWithWhite:0.6 alpha:0.6];
         }
         
-        else {
-            GTTeamTableViewCell *teamCell = [tableView dequeueReusableCellWithIdentifier:kGametimeTeamTableCellIdentifier forIndexPath:indexPath];
-            return teamCell;
-        }
+        placeholderCell.textLabel.text = @"+ Add A New Fantasy Team";
+        
+        return placeholderCell;
     }
         
-    else { // nfl teams
-        GTTeamTableViewCell *teamCell = [tableView dequeueReusableCellWithIdentifier:kGametimeTeamTableCellIdentifier forIndexPath:indexPath];
-        GTTeamObject *team = _gameTimeNFLTeams[indexPath.row];
-        teamCell.teamAvatarView.image = team.teamImage;
-        teamCell.teamTitleLabel.text = team.teamName;
-        teamCell.teamDetailLabel.text = [NSString stringWithFormat:@"%@  ", team.teamAbbreviation];
-        return teamCell;
-    }
+    GTTeamTableViewCell *teamCell = [tableView dequeueReusableCellWithIdentifier:kGametimeTeamTableCellIdentifier forIndexPath:indexPath];
+    GTTeamObject *team = indexPath.section == 0 ? _gameTimeTeams[indexPath.row] : _gameTimeNFLTeams[indexPath.row];
+    teamCell.teamAvatarView.image = team.teamImage;
+    teamCell.teamTitleLabel.text = team.teamName;
+    teamCell.teamDetailLabel.text = [NSString stringWithFormat:@"%@  ", team.teamAbbreviation];
+    return teamCell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if (indexPath.section == 0) {
+    if (indexPath.section == 0 && _gameTimeTeams.count == 0) {
         [self addBarButtonItemTapped];
     }
+}
+
+/*- (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return @[[UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Delete" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        GTTeamObject *team = _gameTimeNFLTeams[indexPath.row];
+        [GTDefaultsManager deleteSavedTeam:team];
+        [self setupGametimeTeams];
+    }]];
+}*/
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewCellEditingStyleDelete;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return indexPath.section == 0 && _gameTimeTeams.count > 0;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    GTTeamObject *team = _gameTimeTeams[indexPath.row];
+    [GTDefaultsManager deleteSavedTeam:team];
+    [self setupGametimeTeams];
 }
 
 @end
