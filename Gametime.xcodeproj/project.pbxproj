@@ -17,6 +17,9 @@
 		23057D361C078E0E009DECF6 /* GTNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23057D351C078E0E009DECF6 /* GTNavigationController.m */; };
 		235F13B91C0792220070F899 /* GTTeamTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F13B81C0792220070F899 /* GTTeamTableViewCell.m */; };
 		235F13BC1C0795060070F899 /* GTPlaceholderBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F13BB1C0795060070F899 /* GTPlaceholderBackgroundView.m */; };
+		235F13BF1C0797BF0070F899 /* GTTeamObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F13BE1C0797BF0070F899 /* GTTeamObject.m */; };
+		235F13C61C07A3F40070F899 /* GTDefaultsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F13C51C07A3F40070F899 /* GTDefaultsManager.m */; };
+		235F13C91C07A4ED0070F899 /* GTAddTeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F13C81C07A4ED0070F899 /* GTAddTeamViewController.m */; };
 		4A7CB3F554D12A1F4957DBB7 /* libPods-Gametime.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 048BF9BC3982F8844F86859A /* libPods-Gametime.a */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +64,12 @@
 		235F13B81C0792220070F899 /* GTTeamTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTTeamTableViewCell.m; sourceTree = "<group>"; };
 		235F13BA1C0795060070F899 /* GTPlaceholderBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTPlaceholderBackgroundView.h; sourceTree = "<group>"; };
 		235F13BB1C0795060070F899 /* GTPlaceholderBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTPlaceholderBackgroundView.m; sourceTree = "<group>"; };
+		235F13BD1C0797BF0070F899 /* GTTeamObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTTeamObject.h; sourceTree = "<group>"; };
+		235F13BE1C0797BF0070F899 /* GTTeamObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTTeamObject.m; sourceTree = "<group>"; };
+		235F13C41C07A3F40070F899 /* GTDefaultsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTDefaultsManager.h; sourceTree = "<group>"; };
+		235F13C51C07A3F40070F899 /* GTDefaultsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTDefaultsManager.m; sourceTree = "<group>"; };
+		235F13C71C07A4ED0070F899 /* GTAddTeamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTAddTeamViewController.h; sourceTree = "<group>"; };
+		235F13C81C07A4ED0070F899 /* GTAddTeamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTAddTeamViewController.m; sourceTree = "<group>"; };
 		998E84D3D4B251F039048839 /* Pods-Gametime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gametime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gametime/Pods-Gametime.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,16 +124,10 @@
 		23057D001C078AAD009DECF6 /* Gametime */ = {
 			isa = PBXGroup;
 			children = (
-				23057D041C078AAD009DECF6 /* GTAppDelegate.h */,
-				23057D051C078AAD009DECF6 /* GTAppDelegate.m */,
-				23057D341C078E0E009DECF6 /* GTNavigationController.h */,
-				23057D351C078E0E009DECF6 /* GTNavigationController.m */,
-				23057D071C078AAD009DECF6 /* GTMainViewController.h */,
-				23057D081C078AAD009DECF6 /* GTMainViewController.m */,
-				235F13BA1C0795060070F899 /* GTPlaceholderBackgroundView.h */,
-				235F13BB1C0795060070F899 /* GTPlaceholderBackgroundView.m */,
-				235F13B71C0792220070F899 /* GTTeamTableViewCell.h */,
-				235F13B81C0792220070F899 /* GTTeamTableViewCell.m */,
+				235F13C11C0797CA0070F899 /* Infrastructure */,
+				235F13C21C0797D00070F899 /* View Controllers */,
+				235F13C01C0797C50070F899 /* Views */,
+				235F13C31C0797DD0070F899 /* Objects */,
 				23057D0D1C078AAD009DECF6 /* Assets.xcassets */,
 				23057D0F1C078AAD009DECF6 /* GTLaunchScreen.storyboard */,
 				23057D011C078AAD009DECF6 /* Supporting Files */,
@@ -157,6 +160,50 @@
 				23057D281C078AAD009DECF6 /* Info.plist */,
 			);
 			path = GametimeUITests;
+			sourceTree = "<group>";
+		};
+		235F13C01C0797C50070F899 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				235F13BA1C0795060070F899 /* GTPlaceholderBackgroundView.h */,
+				235F13BB1C0795060070F899 /* GTPlaceholderBackgroundView.m */,
+				235F13B71C0792220070F899 /* GTTeamTableViewCell.h */,
+				235F13B81C0792220070F899 /* GTTeamTableViewCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		235F13C11C0797CA0070F899 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				23057D041C078AAD009DECF6 /* GTAppDelegate.h */,
+				23057D051C078AAD009DECF6 /* GTAppDelegate.m */,
+				23057D341C078E0E009DECF6 /* GTNavigationController.h */,
+				23057D351C078E0E009DECF6 /* GTNavigationController.m */,
+			);
+			name = Infrastructure;
+			sourceTree = "<group>";
+		};
+		235F13C21C0797D00070F899 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				23057D071C078AAD009DECF6 /* GTMainViewController.h */,
+				23057D081C078AAD009DECF6 /* GTMainViewController.m */,
+				235F13C71C07A4ED0070F899 /* GTAddTeamViewController.h */,
+				235F13C81C07A4ED0070F899 /* GTAddTeamViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		235F13C31C0797DD0070F899 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				235F13BD1C0797BF0070F899 /* GTTeamObject.h */,
+				235F13BE1C0797BF0070F899 /* GTTeamObject.m */,
+				235F13C41C07A3F40070F899 /* GTDefaultsManager.h */,
+				235F13C51C07A3F40070F899 /* GTDefaultsManager.m */,
+			);
+			name = Objects;
 			sourceTree = "<group>";
 		};
 		EA9E2D3F091AC9521500A6D2 /* Pods */ = {
@@ -345,7 +392,10 @@
 				235F13B91C0792220070F899 /* GTTeamTableViewCell.m in Sources */,
 				23057D061C078AAD009DECF6 /* GTAppDelegate.m in Sources */,
 				23057D361C078E0E009DECF6 /* GTNavigationController.m in Sources */,
+				235F13C61C07A3F40070F899 /* GTDefaultsManager.m in Sources */,
+				235F13BF1C0797BF0070F899 /* GTTeamObject.m in Sources */,
 				23057D031C078AAD009DECF6 /* main.m in Sources */,
+				235F13C91C07A4ED0070F899 /* GTAddTeamViewController.m in Sources */,
 				235F13BC1C0795060070F899 /* GTPlaceholderBackgroundView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

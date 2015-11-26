@@ -19,12 +19,12 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     
     if (self) {
-        //CGFloat imageViewWidth = kGametimeTableViewCellHeight - 10.0;
+        CGFloat imageViewWidth = kGametimeTableViewCellHeight + 10.0;
         _teamAvatarView = [[UIImageView alloc] init];
         _teamAvatarView.translatesAutoresizingMaskIntoConstraints = NO;
-        _teamAvatarView.contentMode = UIViewContentModeScaleAspectFit;
-        //_teamAvatarView.layer.masksToBounds = YES;
-        //_teamAvatarView.layer.cornerRadius = imageViewWidth / 2.0;
+        _teamAvatarView.contentMode = UIViewContentModeScaleAspectFill;
+        _teamAvatarView.layer.masksToBounds = YES;
+        _teamAvatarView.layer.cornerRadius = 10.0; // imageViewWidth / 2.0;
         [self.contentView addSubview:_teamAvatarView];
         
         _teamTitleLabel = [[UILabel alloc] init];
@@ -49,7 +49,7 @@
         [self.contentView addCompactConstraints:@[@"avatar.left = super.left + 15",
                                                   @"avatar.top = super.top + 5",
                                                   @"avatar.bottom = super.bottom - 5",
-                                                  @"avatar.width = avatar.height",
+                                                  @"avatar.width = imageViewWidth",
                                                   
                                                   @"title.left = avatar.right + 15",
                                                   @"title.right = super.right - 15",
@@ -58,7 +58,7 @@
                                                   @"detail.left = avatar.right + 15",
                                                   @"detail.right = super.right - 15",
                                                   @"detail.top = super.centerY"]
-                                        metrics:nil
+                                        metrics:@{@"imageViewWidth" : @(imageViewWidth)}
                                           views:@{@"avatar" : _teamAvatarView,
                                                   @"title" : _teamTitleLabel,
                                                   @"detail" : _teamDetailLabel}];
