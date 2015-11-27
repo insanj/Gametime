@@ -54,6 +54,8 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
+    [self.refreshControl endRefreshing];
+    
     if (!_gameTimeTeams) {
         [self setupGametimeTeams];
     }

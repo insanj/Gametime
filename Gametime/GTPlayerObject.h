@@ -6,7 +6,7 @@
 //  Copyright © 2015 Julian Weiss. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface GTPlayerObject : NSObject
 
@@ -14,11 +14,13 @@
 
 @property (strong, nonatomic, readonly) NSString *playerTeamAbbreviation, *playerFirstName, *playerLastName, *playerFullName, *playerPositionName, *playerStatusString, *playerCollegeName, *playerExperienceString;
 
+@property (nonatomic, readonly) CGFloat playerFantasyPoints;
+
 @property (nonatomic, readonly) NSInteger playerIdentifier, playerNumber, playerHeightFeet, playerHeightInches, playerWeight, playerAge;
 
 @property (nonatomic, readonly) BOOL playerActive;
 
-@property (nonatomic, readonly) NSInteger playerByeWeek, playerUpcomingGameWeek, playerUpcomingOpponentPositionRank;
+@property (nonatomic, readonly) NSInteger playerByeWeek, playerUpcomingGameWeek, playerUpcomingOpponentRank, playerUpcomingOpponentPositionRank;
 
 @property (strong, nonatomic, readonly) NSString *playerUpcomingGameOpponent;
 

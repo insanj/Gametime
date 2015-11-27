@@ -23,6 +23,7 @@
 		235F13CC1C07BE850070F899 /* GTTeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F13CB1C07BE850070F899 /* GTTeamViewController.m */; };
 		235F13CF1C07C0FB0070F899 /* GTPlayerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F13CE1C07C0FB0070F899 /* GTPlayerObject.m */; };
 		235F13D21C07C6C30070F899 /* GTPlayerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F13D11C07C6C30070F899 /* GTPlayerTableViewCell.m */; };
+		235F13D51C07D3A70070F899 /* NSObject+Gametime.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F13D41C07D3A70070F899 /* NSObject+Gametime.m */; };
 		4A7CB3F554D12A1F4957DBB7 /* libPods-Gametime.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 048BF9BC3982F8844F86859A /* libPods-Gametime.a */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,8 @@
 		235F13CE1C07C0FB0070F899 /* GTPlayerObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTPlayerObject.m; sourceTree = "<group>"; };
 		235F13D01C07C6C30070F899 /* GTPlayerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTPlayerTableViewCell.h; sourceTree = "<group>"; };
 		235F13D11C07C6C30070F899 /* GTPlayerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTPlayerTableViewCell.m; sourceTree = "<group>"; };
+		235F13D31C07D3A70070F899 /* NSObject+Gametime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Gametime.h"; sourceTree = "<group>"; };
+		235F13D41C07D3A70070F899 /* NSObject+Gametime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Gametime.m"; sourceTree = "<group>"; };
 		998E84D3D4B251F039048839 /* Pods-Gametime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gametime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gametime/Pods-Gametime.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -191,6 +194,8 @@
 				23057D051C078AAD009DECF6 /* GTAppDelegate.m */,
 				23057D341C078E0E009DECF6 /* GTNavigationController.h */,
 				23057D351C078E0E009DECF6 /* GTNavigationController.m */,
+				235F13D31C07D3A70070F899 /* NSObject+Gametime.h */,
+				235F13D41C07D3A70070F899 /* NSObject+Gametime.m */,
 			);
 			name = Infrastructure;
 			sourceTree = "<group>";
@@ -413,6 +418,7 @@
 				235F13BF1C0797BF0070F899 /* GTTeamObject.m in Sources */,
 				23057D031C078AAD009DECF6 /* main.m in Sources */,
 				235F13C91C07A4ED0070F899 /* GTAddTeamViewController.m in Sources */,
+				235F13D51C07D3A70070F899 /* NSObject+Gametime.m in Sources */,
 				235F13BC1C0795060070F899 /* GTPlaceholderBackgroundView.m in Sources */,
 				235F13CF1C07C0FB0070F899 /* GTPlayerObject.m in Sources */,
 			);

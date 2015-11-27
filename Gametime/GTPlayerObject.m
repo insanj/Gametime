@@ -7,38 +7,41 @@
 //
 
 #import "GTPlayerObject.h"
+#import "NSObject+Gametime.h"
 
 @implementation GTPlayerObject
 
 + (instancetype)playerWithDictionaryRepresentation:(NSDictionary *)dictionary {
     GTPlayerObject *playerObject = [GTPlayerObject new];
-    [playerObject setValue:[NSURL URLWithString:dictionary[@"PhotoUrl"]] forKey:@"playerPhotoURL"];
+    [playerObject safeSetURL:[NSURL URLWithString:dictionary[@"PhotoUrl"]] forKey:@"playerPhotoURL"];
     
-    [playerObject setValue:dictionary[@"Team"] forKey:@"playerTeamAbbreviation"];
-    [playerObject setValue:dictionary[@"FirstName"] forKey:@"playerFirstName"];
-    [playerObject setValue:dictionary[@"LastName"] forKey:@"playerLastName"];
-    [playerObject setValue:dictionary[@"Name"] forKey:@"playerFullName"];
-    [playerObject setValue:dictionary[@"Position"] forKey:@"playerPositionName"];
-    [playerObject setValue:dictionary[@"Status"] forKey:@"playerStatusString"];
-    [playerObject setValue:dictionary[@"College"] forKey:@"playerCollegeName"];
+    [playerObject safeSetString:dictionary[@"Team"] forKey:@"playerTeamAbbreviation"];
+    [playerObject safeSetString:dictionary[@"FirstName"] forKey:@"playerFirstName"];
+    [playerObject safeSetString:dictionary[@"LastName"] forKey:@"playerLastName"];
+    [playerObject safeSetString:dictionary[@"Name"] forKey:@"playerFullName"];
+    [playerObject safeSetString:dictionary[@"Position"] forKey:@"playerPositionName"];
+    [playerObject safeSetString:dictionary[@"Status"] forKey:@"playerStatusString"];
+    [playerObject safeSetString:dictionary[@"College"] forKey:@"playerCollegeName"];
     
-    [playerObject setValue:dictionary[@"PlayerID"] forKey:@"playerIdentifier"];
-    [playerObject setValue:dictionary[@"Number"] forKey:@"playerNumber"];
-    [playerObject setValue:dictionary[@"HeightFeet"] forKey:@"playerHeightFeet"];
-    [playerObject setValue:dictionary[@"HeightInches"] forKey:@"playerHeightInches"];
-    [playerObject setValue:dictionary[@"Weight"] forKey:@"playerWeight"];
-    [playerObject setValue:dictionary[@"ExperienceString"] forKey:@"playerExperienceString"];
-    [playerObject setValue:dictionary[@"Age"] forKey:@"playerAge"];
+    [playerObject safeSetNumber:dictionary[@"PlayerID"] forKey:@"playerIdentifier"];
+    [playerObject safeSetNumber:dictionary[@"Number"] forKey:@"playerNumber"];
+    [playerObject safeSetNumber:dictionary[@"HeightFeet"] forKey:@"playerHeightFeet"];
+    [playerObject safeSetNumber:dictionary[@"HeightInches"] forKey:@"playerHeightInches"];
+    [playerObject safeSetNumber:dictionary[@"Weight"] forKey:@"playerWeight"];
+    [playerObject safeSetNumber:dictionary[@"ExperienceString"] forKey:@"playerExperienceString"];
+    [playerObject safeSetNumber:dictionary[@"Age"] forKey:@"playerAge"];
+
+    [playerObject safeSetNumber:dictionary[@"Active"] forKey:@"playerActive"];
     
-    [playerObject setValue:dictionary[@"Active"] forKey:@"playerActive"];
-    
-    [playerObject setValue:dictionary[@"ByeWeek"] forKey:@"playerByeWeek"];
-    [playerObject setValue:dictionary[@"UpcomingGameWeek"] forKey:@"playerUpcomingGameWeek"];
-    
-    [playerObject setValue:dictionary[@"UpcomingGameOpponent"] forKey:@"playerUpcomingGameOpponent"];
-    
-    if (![dictionary[@"UpcomingOpponentPositionRank"] isKindOfClass:[NSNull class]]) {
-        [playerObject setValue:dictionary[@"UpcomingOpponentPositionRank"] forKey:@"playerUpcomingOpponentPositionRank"];
+    [playerObject safeSetNumber:dictionary[@"ByeWeek"] forKey:@"playerByeWeek"];
+    [playerObject safeSetNumber:dictionary[@"UpcomingGameWeek"] forKey:@"playerUpcomingGameWeek"];
+    [playerObject safeSetString:dictionary[@"UpcomingGameOpponent"] forKey:@"playerUpcomingGameOpponent"];
+    [playerObject safeSetNumber:dictionary[@"UpcomingOpponentRank"] forKey:@"playerUpcomingOpponentRank"];
+    [playerObject safeSetNumber:dictionary[@"UpcomingOpponentPositionRank"] forKey:@"playerUpcomingOpponentPositionRank"];
+
+    NSDictionary *seasonDict = dictionary[@"PlayerSeason"];
+    if (seasonDict && ![seasonDict isKindOfClass:[NSNull class]]) {
+        [playerObject safeSetNumber:seasonDict[@"FantasyPoints"] forKey:@"playerFantasyPoints"];
     }
     
     return playerObject;
@@ -55,6 +58,8 @@
              @"College" : _playerCollegeName,
              @"ExperienceString" : _playerExperienceString,
 
+             @"FantasyPoints" : @(_playerFantasyPoints),
+             
              @"PlayerID" : @(_playerIdentifier),
              @"Number" : @(_playerNumber),
              @"HeightFeet" : @(_playerHeightFeet),

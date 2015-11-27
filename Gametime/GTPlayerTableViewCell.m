@@ -16,7 +16,7 @@
 
 @property (strong, nonatomic) UILabel *playerNameLabel, *playerPositionLabel;
 
-@property (strong, nonatomic) UILabel *playerInfoLabel;
+@property (strong, nonatomic) UILabel *playerInfoLabel, *playerPointsString;
 
 @property (strong, nonatomic) UILabel *playerUpcomingLabel;
 
@@ -38,7 +38,8 @@
         _playerImageView.translatesAutoresizingMaskIntoConstraints = NO;
         _playerImageView.layer.masksToBounds = YES;
         _playerImageView.layer.cornerRadius = imageViewHeight / 2.0;
-        _playerImageView.backgroundColor = [UIColor lightGrayColor];
+        _playerImageView.layer.borderWidth = 1.0;
+        _playerImageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
         [self.contentView addSubview:_playerImageView];
         
         _playerNameLabel = [[UILabel alloc] init];
@@ -65,6 +66,14 @@
         _playerInfoLabel.font = [UIFont systemFontOfSize:14.0 weight:UIFontWeightMedium];
         [self.contentView addSubview:_playerInfoLabel];
 
+        _playerPointsString = [[UILabel alloc] init];
+        _playerPointsString.translatesAutoresizingMaskIntoConstraints = NO;
+        _playerPointsString.textAlignment = NSTextAlignmentRight;
+        _playerPointsString.numberOfLines = 1;
+        _playerPointsString.textColor = [UIColor darkGrayColor];
+        _playerPointsString.font = [UIFont systemFontOfSize:14.0 weight:UIFontWeightMedium];
+        [self.contentView addSubview:_playerPointsString];
+        
         _playerUpcomingLabel = [[UILabel alloc] init];
         _playerUpcomingLabel.translatesAutoresizingMaskIntoConstraints = NO;
         _playerUpcomingLabel.textAlignment = NSTextAlignmentLeft;
@@ -87,7 +96,10 @@
                                                   
                                                   @"info.top = name.bottom",
                                                   @"info.left = name.left",
-                                                  @"info.right = super.right - 10",
+                                                  @"info.right = points.left - 5",
+                                                  
+                                                  @"points.right = super.right - 15",
+                                                  @"points.top = info.top",
                                                   
                                                   @"upcoming.left = info.left",
                                                   @"upcoming.top = info.bottom",
@@ -97,6 +109,7 @@
                                                   @"name" : _playerNameLabel,
                                                   @"position" : _playerPositionLabel,
                                                   @"info" : _playerInfoLabel,
+                                                  @"points" : _playerPointsString,
                                                   @"upcoming" : _playerUpcomingLabel}];
     }
     
@@ -111,9 +124,21 @@
     _playerNameLabel.text = [NSString stringWithFormat:@"%@ #%@", _player.playerFullName, @(_player.playerNumber)];
     _playerPositionLabel.text = _player.playerPositionName;
     
-    _playerInfoLabel.text = [NSString stringWithFormat:@"%@, %@'%@'' %@", _player.playerStatusString.uppercaseString, @(_player.playerHeightFeet), @(_player.playerHeightInches), _player.playerExperienceString];
+    _playerInfoLabel.text = [NSString stringWithFormat:@"%@, %@", _player.playerStatusString.uppercaseString, _player.playerExperienceString];
     
-    _playerUpcomingLabel.text  = [NSString stringWithFormat:@"WEEK %@ vs %@ (RANK %@ AGAINST)", @(_player.playerUpcomingGameWeek), _player.playerUpcomingGameOpponent, @(_player.playerUpcomingOpponentPositionRank)];
+    _playerPointsString.text = [NSString stringWithFormat:@"%@", [NSNumberFormatter localizedStringFromNumber:@(_player.playerFantasyPoints) numberStyle:NSNumberFormatterDecimalStyle]];
+
+    if (_player.playerUpcomingOpponentPositionRank) {
+        _playerUpcomingLabel.text  = [NSString stringWithFormat:@"WEEK %@ vs %@ (RANK %@ AGAINST)", @(_player.playerUpcomingGameWeek), _player.playerUpcomingGameOpponent, @(_player.playerUpcomingOpponentPositionRank)];
+    }
+    
+    else if (_player.playerUpcomingOpponentRank){
+        _playerUpcomingLabel.text  = [NSString stringWithFormat:@"WEEK %@ vs %@ (RANK %@)", @(_player.playerUpcomingGameWeek), _player.playerUpcomingGameOpponent, @(_player.playerUpcomingOpponentRank)];
+    }
+    
+    else {
+        _playerUpcomingLabel.text  = [NSString stringWithFormat:@"WEEK %@ vs %@", @(_player.playerUpcomingGameWeek), _player.playerUpcomingGameOpponent];
+    }
 }
 
 @end

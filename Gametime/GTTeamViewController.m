@@ -73,6 +73,8 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
+    [self.refreshControl endRefreshing];
+
     if (!_teamIsFantasy && !_teamPlayers) {
         [self setupNFLTeamFantasyData];
     }
