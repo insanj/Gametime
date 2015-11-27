@@ -59,8 +59,8 @@
     placeholderBackgroundView.placeholderDetailLabel.text = @"This should only take a moment. Retrieving NFL data from the Fantasy Football API...";
     self.tableView.backgroundView = placeholderBackgroundView;
     
-    // self.refreshControl = [[UIRefreshControl alloc] init];
-    // [self.refreshControl addTarget:self action:@selector(refreshControlValueChanged:) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(refreshControlValueChanged:) forControlEvents:UIControlEventValueChanged];
     
     [self.tableView registerClass:[GTPlayerTableViewCell class] forCellReuseIdentifier:kGametimePlayerCellIdentifier];
     [self.tableView registerClass:[GTTeamHeaderFooterView class] forHeaderFooterViewReuseIdentifier:kGametimeTeamHeaderViewIdentifier];

@@ -54,6 +54,7 @@
         CGFloat imageWidth = 100.0;
         _teamAvatarImageView = [[UIImageView alloc] init];
         _teamAvatarImageView.translatesAutoresizingMaskIntoConstraints = NO;
+        _teamAvatarImageView.contentMode = UIViewContentModeScaleAspectFit;
         _teamAvatarImageView.layer.masksToBounds = YES;
         _teamAvatarImageView.layer.cornerRadius = imageWidth / 2.0;
         _teamAvatarImageView.layer.borderWidth = 1.0;
@@ -111,7 +112,10 @@
     _team = team;
     
     _teamAvatarImageView.image = team.teamImage;
-    
+    UIColor *averageColor = team.teamImage ? [self averageColorInImage:team.teamImage] : [UIColor clearColor];
+    _teamAvatarImageView.backgroundColor = averageColor;
+    self.backgroundView.backgroundColor = [averageColor colorWithAlphaComponent:0.1];
+
     //UIView *backgroundView = [[UIView alloc] init];
     //backgroundView.backgroundColor = [[self averageColorInImage:_team.teamImage] colorWithAlphaComponent:0.8];
     //self.backgroundView = backgroundView;
@@ -119,7 +123,9 @@
     _teamTitleLabel.text = team.teamName;
     
     if (_teamRosterCount > 0) {
-        _teamDetailLabel.text = [NSString stringWithFormat:@"%@     %@ Players", team.teamAbbreviation, [NSNumberFormatter localizedStringFromNumber:@(_teamRosterCount) numberStyle:NSNumberFormatterDecimalStyle]];
+        NSMutableAttributedString *teamAbbreviationString = [[NSMutableAttributedString alloc] initWithString:team.teamAbbreviation attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:18.0 weight:UIFontWeightMedium]}];
+        [teamAbbreviationString appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"     %@ PLAYERS", [NSNumberFormatter localizedStringFromNumber:@(_teamRosterCount) numberStyle:NSNumberFormatterDecimalStyle]] attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:16.0 weight:UIFontWeightMedium], NSForegroundColorAttributeName : [UIColor colorWithWhite:0.0 alpha:0.5]}]];
+        _teamDetailLabel.attributedText = teamAbbreviationString;
     }
     
     else {
@@ -127,7 +133,6 @@
     }
 }
 
-/*
 // http://stackoverflow.com/questions/13694618/objective-c-getting-least-used-and-most-used-color-in-a-image/13695592#13695592
 - (UIColor *)averageColorInImage:(UIImage *)image {
     
@@ -154,6 +159,5 @@
                                alpha:((CGFloat)rgba[3])/255.0];
     }
 }
-*/
 
 @end

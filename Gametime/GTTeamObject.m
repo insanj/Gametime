@@ -7,8 +7,14 @@
 //
 
 #import "GTTeamObject.h"
+#import "UIImage+Gametime.h"
 
 @implementation GTTeamObject
+
+
+- (void)setTeamImage:(UIImage *)teamImage {
+    _teamImage = [teamImage imageWithWidth:300.0];
+}
 
 + (instancetype)teamWithName:(NSString *)team abbreviation:(NSString *)abbreviation image:(UIImage *)image {
     GTTeamObject *teamObject = [[GTTeamObject alloc] init];
