@@ -1,8 +1,10 @@
+![](gametime_thumbnail.png)
+
 ## Gametime
 
-NFL Fantasy Football Game Center App made on Thanksgiving 2015. [Watch a short demo video of the Thanksgiving day build](streamable.com/tuqd)[!](gametime.mov) 
+NFL Fantasy Football Game Center App made on Thanksgiving 2015. [Watch a short demo video of the Thanksgiving day build](https://streamable.com/tuqd)[!](gametime.mov) 
 
-![](gametime_thumbnail.png)
+![](screenie_1.PNG) ![](screenie_2.PNG)
 
 ### What is Gametime?
 
