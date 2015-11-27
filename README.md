@@ -1,4 +1,4 @@
-![](gametime_thumbnail.png)
+![](gametime_thumbnail@3x.png)
 
 ## Gametime
 
@@ -6,6 +6,8 @@ NFL Fantasy Football Game Center App made on Thanksgiving 2015. [Watch a short d
 
 ![](screenie_1.PNG) ![](screenie_2.PNG)
 
+---
+ 
 ### What is Gametime?
 
 Gametime is a really simple, really good app for keeping track of NFL games. I had the idea to finally make a football app worth using after spending Thanksgiving playing with my family. My initial build was made in about 5-6 hours entirely during Thursday (and 90% during the football games themselves, considering the commercials were 90% of each game…).
@@ -22,6 +24,7 @@ So, the future of Gametime is purely personal, for now. I'm going to keep workin
 
 Enjoy!
 
+---
 
 ## License
 	
