@@ -12,7 +12,7 @@
 
 - (void)safeSetURL:(NSURL *)url forKey:(NSString *)key {
     if (!url || [url isKindOfClass:[NSNull class]]) {
-        [self setValue:[NSURL URLWithString:@"about:blank"] forKey:key];
+        [self setValue:[NSURL URLWithString:@""] forKey:key];
     }
     
     else {

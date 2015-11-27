@@ -28,4 +28,6 @@
 
 - (NSDictionary *)dictionaryRepresentation;
 
+- (void)mergeWithPlayer:(GTPlayerObject *)player;
+
 @end

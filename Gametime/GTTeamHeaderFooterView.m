@@ -119,7 +119,7 @@
     _teamTitleLabel.text = team.teamName;
     
     if (_teamRosterCount > 0) {
-        _teamDetailLabel.text = [NSString stringWithFormat:@"%@   %@ Players", team.teamAbbreviation, [NSNumberFormatter localizedStringFromNumber:@(_teamRosterCount) numberStyle:NSNumberFormatterDecimalStyle]];
+        _teamDetailLabel.text = [NSString stringWithFormat:@"%@     %@ Players", team.teamAbbreviation, [NSNumberFormatter localizedStringFromNumber:@(_teamRosterCount) numberStyle:NSNumberFormatterDecimalStyle]];
     }
     
     else {

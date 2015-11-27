@@ -30,9 +30,15 @@
     [playerObject safeSetNumber:dictionary[@"Weight"] forKey:@"playerWeight"];
     [playerObject safeSetNumber:dictionary[@"ExperienceString"] forKey:@"playerExperienceString"];
     [playerObject safeSetNumber:dictionary[@"Age"] forKey:@"playerAge"];
-
-    [playerObject safeSetNumber:dictionary[@"Active"] forKey:@"playerActive"];
     
+    if (dictionary[@"Activated"]) {
+        [playerObject safeSetNumber:dictionary[@"Activated"] forKey:@"playerActive"];
+    }
+    
+    else {
+        [playerObject safeSetNumber:dictionary[@"Active"] forKey:@"playerActive"];
+    }
+
     [playerObject safeSetNumber:dictionary[@"ByeWeek"] forKey:@"playerByeWeek"];
     [playerObject safeSetNumber:dictionary[@"UpcomingGameWeek"] forKey:@"playerUpcomingGameWeek"];
     [playerObject safeSetString:dictionary[@"UpcomingGameOpponent"] forKey:@"playerUpcomingGameOpponent"];
@@ -42,6 +48,10 @@
     NSDictionary *seasonDict = dictionary[@"PlayerSeason"];
     if (seasonDict && ![seasonDict isKindOfClass:[NSNull class]]) {
         [playerObject safeSetNumber:seasonDict[@"FantasyPoints"] forKey:@"playerFantasyPoints"];
+    }
+    
+    else if (dictionary[@"FantasyPoints"]) {
+        [playerObject safeSetNumber:dictionary[@"FantasyPoints"] forKey:@"playerFantasyPoints"];
     }
     
     return playerObject;
@@ -68,12 +78,61 @@
              @"Age" : @(_playerAge),
              
              @"Active" : @(_playerActive),
-             
+
              @"ByeWeek" : @(_playerByeWeek),
              @"UpcomingGameWeek" : @(_playerUpcomingGameWeek),
+             @"UpcomingGameOpponent" : _playerUpcomingGameOpponent,
+             @"UpcomingOpponentRank" : @(_playerUpcomingOpponentRank),
              @"UpcomingOpponentPositionRank" : @(_playerUpcomingOpponentPositionRank),
-             
-             @"playerUpcomingGameOpponent" : _playerUpcomingGameOpponent};
+             @"UpcomingGameOpponent" : _playerUpcomingGameOpponent};
+}
+
+- (void)mergeWithPlayer:(GTPlayerObject *)player {
+    if (self.playerPhotoURL.absoluteString.length == 0) {
+        [self safeSetURL:player.playerPhotoURL forKey:@"playerPhotoURL"];
+    }
+    
+    // [playerObject safeSetString:dictionary[@"Team"] forKey:@"playerTeamAbbreviation"];
+    // [playerObject safeSetString:dictionary[@"FirstName"] forKey:@"playerFirstName"];
+    // [playerObject safeSetString:dictionary[@"LastName"] forKey:@"playerLastName"];
+    // [playerObject safeSetString:dictionary[@"Name"] forKey:@"playerFullName"];
+    // [playerObject safeSetString:dictionary[@"Position"] forKey:@"playerPositionName"];
+    
+    if (self.playerStatusString.length == 0) {
+        [self safeSetString:player.playerStatusString forKey:@"playerStatusString"];
+    }
+
+    // [playerObject safeSetString:dictionary[@"College"] forKey:@"playerCollegeName"];
+    // [playerObject safeSetNumber:dictionary[@"PlayerID"] forKey:@"playerIdentifier"];
+    // [playerObject safeSetNumber:dictionary[@"Number"] forKey:@"playerNumber"];
+    // [playerObject safeSetNumber:dictionary[@"HeightFeet"] forKey:@"playerHeightFeet"];
+    // [playerObject safeSetNumber:dictionary[@"HeightInches"] forKey:@"playerHeightInches"];
+    // [playerObject safeSetNumber:dictionary[@"Weight"] forKey:@"playerWeight"];
+    if (self.playerStatusString.length == 0) {
+        [self safeSetString:player.playerExperienceString forKey:@"playerExperienceString"];
+    }
+    
+    if (!self.playerAge) {
+        [self safeSetNumber:@(player.playerAge) forKey:@"playerAge"];
+    }
+    
+    // [playerObject safeSetNumber:dictionary[@"ByeWeek"] forKey:@"playerByeWeek"];
+    
+    if (!self.playerUpcomingGameWeek) {
+        [self safeSetNumber:@(player.playerUpcomingGameWeek) forKey:@"playerUpcomingGameWeek"];
+    }
+    
+    if (self.playerUpcomingGameOpponent.length == 0) {
+        [self safeSetString:player.playerUpcomingGameOpponent forKey:@"playerUpcomingGameOpponent"];
+    }
+    
+    if (!self.playerUpcomingGameOpponent) {
+        [self safeSetNumber:@(player.playerUpcomingOpponentRank) forKey:@"playerUpcomingOpponentRank"];
+    }
+    
+    if (!self.playerUpcomingOpponentPositionRank) {
+        [self safeSetNumber:@(player.playerUpcomingOpponentPositionRank) forKey:@"playerUpcomingOpponentPositionRank"];
+    }    
 }
 
 /*

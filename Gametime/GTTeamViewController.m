@@ -104,7 +104,7 @@
     }
 }
 
-- (void)setupNFLTeamFantasyData {
+- (void)setupNFLTeamFantasyWeekData {
     AFHTTPRequestOperationManager *fantasyManager = [AFHTTPRequestOperationManager manager];
     
     AFHTTPRequestSerializer *requestSerializer = [AFHTTPRequestSerializer serializer];
@@ -112,12 +112,23 @@
     fantasyManager.requestSerializer = requestSerializer;
     fantasyManager.responseSerializer = [AFJSONResponseSerializer serializer];
 
-    NSString *fantasyQueryString = [NSString stringWithFormat:@"https://api.fantasydata.net/nfl/v2/JSON/PlayerGameStatsByTeam/2015/%@/%@", @(_teamSeasonWeekNumber).description, _team.teamAbbreviation];
+    NSString *fantasyQueryString = [NSString stringWithFormat:@"https://api.fantasydata.net/nfl/v2/JSON/PlayerGameStatsByTeam/2015/%i/%@", (int)_teamSeasonWeekNumber, _team.teamAbbreviation];
     [fantasyManager GET:fantasyQueryString parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         NSArray *responseArray = (NSArray *)responseObject;
-        NSMutableArray *responsePlayers = [NSMutableArray array];
+        NSMutableArray *responsePlayers = [NSMutableArray array], *responseIdentifiers = [NSMutableArray array];
         for (NSDictionary *playerDict in responseArray) {
-            [responsePlayers addObject:[GTPlayerObject playerWithDictionaryRepresentation:playerDict]];
+            GTPlayerObject *player = [GTPlayerObject playerWithDictionaryRepresentation:playerDict];
+            [responsePlayers addObject:player];
+            [responseIdentifiers addObject:@(player.playerIdentifier)];
+        }
+        
+        for (GTPlayerObject *player in _teamPlayers) {
+            if ([responseIdentifiers containsObject:@(player.playerIdentifier)]) {
+                NSInteger indexOfNewPlayerThatNeedsMerging = [responseIdentifiers indexOfObject:@(player.playerIdentifier)];
+                GTPlayerObject *newPlayer = responsePlayers[indexOfNewPlayerThatNeedsMerging];
+                [newPlayer mergeWithPlayer:player];
+                responsePlayers[indexOfNewPlayerThatNeedsMerging] = newPlayer;
+            }
         }
         
         _teamPlayers = responsePlayers;
@@ -133,13 +144,12 @@
         [errorAlert addAction:[UIAlertAction actionWithTitle:@"Dismiss" style:UIAlertActionStyleCancel handler:NULL]];
         [self presentViewController:errorAlert animated:YES completion:NULL];
         
-        
         [self.tableView reloadData];
         [self.refreshControl endRefreshing];
     }];
 }
 
-- (void)setupNFLTeamFantasyWeekData {
+- (void)setupNFLTeamFantasyData {
     AFHTTPRequestOperationManager *fantasyManager = [AFHTTPRequestOperationManager manager];
     
     AFHTTPRequestSerializer *requestSerializer = [AFHTTPRequestSerializer serializer];
