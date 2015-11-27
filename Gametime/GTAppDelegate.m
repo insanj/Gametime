@@ -9,15 +9,17 @@
 #import "GTAppDelegate.h"
 #import "GTNavigationController.h"
 #import "GTMainViewController.h"
+#import "AFNetworkActivityIndicatorManager.h"
 
 @implementation GTAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = [[GTNavigationController alloc] initWithRootViewController:[[GTMainViewController alloc] init]];
     [self.window makeKeyAndVisible];
+    
+    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
     
     return YES;
 }
