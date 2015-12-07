@@ -13,6 +13,8 @@
 
 @property (strong, nonatomic) NSString *teamName, *teamAbbreviation, *teamImagePath;
 
+@property (nonatomic, readonly) BOOL teamFantasy;
+
 + (instancetype)teamWithName:(NSString *)team abbreviation:(NSString *)abbreviation imagePath:(NSString *)teamImagePath;
 
 + (instancetype)teamWithName:(NSString *)team abbreviation:(NSString *)abbreviation image:(UIImage *)teamImage;

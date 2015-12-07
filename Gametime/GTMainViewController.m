@@ -68,48 +68,54 @@
 #pragma mark - setup
 
 - (void)setupGametimeTeams {
-    _gameTimeTeams = [GTTeamObject allWithOrder:@"teamName"];
+    _gameTimeTeams = [GTTeamObject where:@{@"teamFantasy" : @(YES)}];
     
     [self.tableView reloadData];
     [self.refreshControl endRefreshing];
 }
 
 - (void)setupNFLTeams {
-    GTTeamObject *cardinals = [GTTeamObject teamWithName:@"Arizona Cardinals" abbreviation:@"ARI" image:[UIImage imageNamed:@"cardinals"]];
-    GTTeamObject *falcons = [GTTeamObject teamWithName:@"Atlanta Falcons" abbreviation:@"ATL" image:[UIImage imageNamed:@"falcons"]];
-    GTTeamObject *ravens = [GTTeamObject teamWithName:@"Baltimore Ravens" abbreviation:@"BAL" image:[UIImage imageNamed:@"ravens"]];
-    GTTeamObject *bills = [GTTeamObject teamWithName:@"Buffalo Bills" abbreviation:@"BUF" image:[UIImage imageNamed:@"bills"]];
-    GTTeamObject *panthers = [GTTeamObject teamWithName:@"Carolina Panthers" abbreviation:@"CAR" image:[UIImage imageNamed:@"panthers"]];
-    GTTeamObject *bears = [GTTeamObject teamWithName:@"Chicago Bears" abbreviation:@"CHI" image:[UIImage imageNamed:@"bears"]];
-    GTTeamObject *bengals = [GTTeamObject teamWithName:@"Cincinnati Bengals" abbreviation:@"CIN" image:[UIImage imageNamed:@"bengals"]];
-    GTTeamObject *browns = [GTTeamObject teamWithName:@"Cleveland Browns" abbreviation:@"CLE" image:[UIImage imageNamed:@"browns"]];
-    GTTeamObject *cowboys = [GTTeamObject teamWithName:@"Dallas Cowboys" abbreviation:@"DAL" image:[UIImage imageNamed:@"cowboys"]];
-    GTTeamObject *broncos = [GTTeamObject teamWithName:@"Denver Broncos" abbreviation:@"DEN" image:[UIImage imageNamed:@"broncos"]];
-    GTTeamObject *lions = [GTTeamObject teamWithName:@"Detroit Lions" abbreviation:@"DET" image:[UIImage imageNamed:@"lions"]];
-    GTTeamObject *packers = [GTTeamObject teamWithName:@"Green Bay Packers" abbreviation:@"GB" image:[UIImage imageNamed:@"packers"]];
-    GTTeamObject *texans = [GTTeamObject teamWithName:@"Houston Texans" abbreviation:@"HOU" image:[UIImage imageNamed:@"texans"]];
-    GTTeamObject *colts = [GTTeamObject teamWithName:@"Indianapolis Colts" abbreviation:@"IND" image:[UIImage imageNamed:@"colts"]];
-    GTTeamObject *jaguars = [GTTeamObject teamWithName:@"Jacksonville Jaguars" abbreviation:@"JAX" image:[UIImage imageNamed:@"jaguars"]];
-    GTTeamObject *chiefs = [GTTeamObject teamWithName:@"Kansas City Chiefs" abbreviation:@"KC" image:[UIImage imageNamed:@"chiefs"]];
-    GTTeamObject *dolphins = [GTTeamObject teamWithName:@"Miami Dolphins" abbreviation:@"MIA" image:[UIImage imageNamed:@"dolphins"]];
-    GTTeamObject *vikings = [GTTeamObject teamWithName:@"Minnesota Vikings" abbreviation:@"MIN" image:[UIImage imageNamed:@"vikings"]];
-    GTTeamObject *patriots = [GTTeamObject teamWithName:@"New England Patriots" abbreviation:@"NE" image:[UIImage imageNamed:@"patriots"]];
-    GTTeamObject *saints = [GTTeamObject teamWithName:@"New Orleans Saints" abbreviation:@"NO" image:[UIImage imageNamed:@"saints"]];
-    GTTeamObject *giants = [GTTeamObject teamWithName:@"New York Giants" abbreviation:@"NYG" image:[UIImage imageNamed:@"giants"]];
-    GTTeamObject *jets = [GTTeamObject teamWithName:@"New York Jets" abbreviation:@"NYJ" image:[UIImage imageNamed:@"jets"]];
-    GTTeamObject *raiders = [GTTeamObject teamWithName:@"Oakland Raiders" abbreviation:@"OAK" image:[UIImage imageNamed:@"raiders"]];
-    GTTeamObject *eagles = [GTTeamObject teamWithName:@"Philadelphia Eagles" abbreviation:@"PHI" image:[UIImage imageNamed:@"eagles"]];
-    GTTeamObject *steelers = [GTTeamObject teamWithName:@"Pittsburgh Steelers" abbreviation:@"PIT" image:[UIImage imageNamed:@"steelers"]];
-    GTTeamObject *chargers = [GTTeamObject teamWithName:@"San Diego Chargers" abbreviation:@"SD" image:[UIImage imageNamed:@"chargers"]];
-    GTTeamObject *fortyniners = [GTTeamObject teamWithName:@"San Francisco 49ers" abbreviation:@"SF" image:[UIImage imageNamed:@"fortyniners"]];
-    GTTeamObject *seahawks = [GTTeamObject teamWithName:@"Seattle Seahawks" abbreviation:@"SEA" image:[UIImage imageNamed:@"seahawks"]];
-    GTTeamObject *rams = [GTTeamObject teamWithName:@"St. Louis Rams" abbreviation:@"STL" image:[UIImage imageNamed:@"rams"]];
-    GTTeamObject *buccaneers = [GTTeamObject teamWithName:@"Tampa Bay Buccaneers" abbreviation:@"TB" image:[UIImage imageNamed:@"buccaneers"]];
-    GTTeamObject *titans = [GTTeamObject teamWithName:@"Tennessee Titans" abbreviation:@"TEN" image:[UIImage imageNamed:@"titans"]];
-    GTTeamObject *redskins = [GTTeamObject teamWithName:@"Washington Redskins" abbreviation:@"WAS" image:[UIImage imageNamed:@"redskins"]];
+    _gameTimeNFLTeams = [GTTeamObject where:@{@"teamFantasy" : @(NO)}];
+
+    if (!_gameTimeNFLTeams || _gameTimeNFLTeams.count == 0) {
+        GTTeamObject *cardinals = [GTTeamObject teamWithName:@"Arizona Cardinals" abbreviation:@"ARI" image:[UIImage imageNamed:@"cardinals"]];
+        GTTeamObject *falcons = [GTTeamObject teamWithName:@"Atlanta Falcons" abbreviation:@"ATL" image:[UIImage imageNamed:@"falcons"]];
+        GTTeamObject *ravens = [GTTeamObject teamWithName:@"Baltimore Ravens" abbreviation:@"BAL" image:[UIImage imageNamed:@"ravens"]];
+        GTTeamObject *bills = [GTTeamObject teamWithName:@"Buffalo Bills" abbreviation:@"BUF" image:[UIImage imageNamed:@"bills"]];
+        GTTeamObject *panthers = [GTTeamObject teamWithName:@"Carolina Panthers" abbreviation:@"CAR" image:[UIImage imageNamed:@"panthers"]];
+        GTTeamObject *bears = [GTTeamObject teamWithName:@"Chicago Bears" abbreviation:@"CHI" image:[UIImage imageNamed:@"bears"]];
+        GTTeamObject *bengals = [GTTeamObject teamWithName:@"Cincinnati Bengals" abbreviation:@"CIN" image:[UIImage imageNamed:@"bengals"]];
+        GTTeamObject *browns = [GTTeamObject teamWithName:@"Cleveland Browns" abbreviation:@"CLE" image:[UIImage imageNamed:@"browns"]];
+        GTTeamObject *cowboys = [GTTeamObject teamWithName:@"Dallas Cowboys" abbreviation:@"DAL" image:[UIImage imageNamed:@"cowboys"]];
+        GTTeamObject *broncos = [GTTeamObject teamWithName:@"Denver Broncos" abbreviation:@"DEN" image:[UIImage imageNamed:@"broncos"]];
+        GTTeamObject *lions = [GTTeamObject teamWithName:@"Detroit Lions" abbreviation:@"DET" image:[UIImage imageNamed:@"lions"]];
+        GTTeamObject *packers = [GTTeamObject teamWithName:@"Green Bay Packers" abbreviation:@"GB" image:[UIImage imageNamed:@"packers"]];
+        GTTeamObject *texans = [GTTeamObject teamWithName:@"Houston Texans" abbreviation:@"HOU" image:[UIImage imageNamed:@"texans"]];
+        GTTeamObject *colts = [GTTeamObject teamWithName:@"Indianapolis Colts" abbreviation:@"IND" image:[UIImage imageNamed:@"colts"]];
+        GTTeamObject *jaguars = [GTTeamObject teamWithName:@"Jacksonville Jaguars" abbreviation:@"JAX" image:[UIImage imageNamed:@"jaguars"]];
+        GTTeamObject *chiefs = [GTTeamObject teamWithName:@"Kansas City Chiefs" abbreviation:@"KC" image:[UIImage imageNamed:@"chiefs"]];
+        GTTeamObject *dolphins = [GTTeamObject teamWithName:@"Miami Dolphins" abbreviation:@"MIA" image:[UIImage imageNamed:@"dolphins"]];
+        GTTeamObject *vikings = [GTTeamObject teamWithName:@"Minnesota Vikings" abbreviation:@"MIN" image:[UIImage imageNamed:@"vikings"]];
+        GTTeamObject *patriots = [GTTeamObject teamWithName:@"New England Patriots" abbreviation:@"NE" image:[UIImage imageNamed:@"patriots"]];
+        GTTeamObject *saints = [GTTeamObject teamWithName:@"New Orleans Saints" abbreviation:@"NO" image:[UIImage imageNamed:@"saints"]];
+        GTTeamObject *giants = [GTTeamObject teamWithName:@"New York Giants" abbreviation:@"NYG" image:[UIImage imageNamed:@"giants"]];
+        GTTeamObject *jets = [GTTeamObject teamWithName:@"New York Jets" abbreviation:@"NYJ" image:[UIImage imageNamed:@"jets"]];
+        GTTeamObject *raiders = [GTTeamObject teamWithName:@"Oakland Raiders" abbreviation:@"OAK" image:[UIImage imageNamed:@"raiders"]];
+        GTTeamObject *eagles = [GTTeamObject teamWithName:@"Philadelphia Eagles" abbreviation:@"PHI" image:[UIImage imageNamed:@"eagles"]];
+        GTTeamObject *steelers = [GTTeamObject teamWithName:@"Pittsburgh Steelers" abbreviation:@"PIT" image:[UIImage imageNamed:@"steelers"]];
+        GTTeamObject *chargers = [GTTeamObject teamWithName:@"San Diego Chargers" abbreviation:@"SD" image:[UIImage imageNamed:@"chargers"]];
+        GTTeamObject *fortyniners = [GTTeamObject teamWithName:@"San Francisco 49ers" abbreviation:@"SF" image:[UIImage imageNamed:@"fortyniners"]];
+        GTTeamObject *seahawks = [GTTeamObject teamWithName:@"Seattle Seahawks" abbreviation:@"SEA" image:[UIImage imageNamed:@"seahawks"]];
+        GTTeamObject *rams = [GTTeamObject teamWithName:@"St. Louis Rams" abbreviation:@"STL" image:[UIImage imageNamed:@"rams"]];
+        GTTeamObject *buccaneers = [GTTeamObject teamWithName:@"Tampa Bay Buccaneers" abbreviation:@"TB" image:[UIImage imageNamed:@"buccaneers"]];
+        GTTeamObject *titans = [GTTeamObject teamWithName:@"Tennessee Titans" abbreviation:@"TEN" image:[UIImage imageNamed:@"titans"]];
+        GTTeamObject *redskins = [GTTeamObject teamWithName:@"Washington Redskins" abbreviation:@"WAS" image:[UIImage imageNamed:@"redskins"]];
+        
+        _gameTimeNFLTeams = @[cardinals, falcons, ravens, bills, panthers, bears, bengals, browns, cowboys, broncos, lions, packers, texans, colts, jaguars, chiefs, dolphins, vikings, patriots, saints, giants, jets, raiders, eagles, steelers, chargers, fortyniners, seahawks, rams, buccaneers, titans, redskins];
+    }
     
-    _gameTimeNFLTeams = @[cardinals, falcons, ravens, bills, panthers, bears, bengals, browns, cowboys, broncos, lions, packers, texans, colts, jaguars, chiefs, dolphins, vikings, patriots, saints, giants, jets, raiders, eagles, steelers, chargers, fortyniners, seahawks, rams, buccaneers, titans, redskins];
-    
+    // _gameTimeNFLTeams = [GTTeamObject where:@{@"fantasyTeam" : @(NO)}];
+
     [self.tableView reloadData];
     [self.refreshControl endRefreshing];
 }

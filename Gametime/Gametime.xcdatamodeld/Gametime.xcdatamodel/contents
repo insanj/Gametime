@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15B42" minimumToolsVersion="Xcode 7.0">
+    <entity name="GTPlayerObject" representedClassName="GTPlayerObject" syncable="YES">
+        <attribute name="playerActive" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="playerAge" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="playerByeWeek" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="playerCollegeName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="playerExperienceString" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="playerFantasyPoints" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="playerFirstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="playerFullName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="playerHeightFeet" optional="YES" attributeType="Decimal" defaultValueString="0" syncable="YES"/>
+        <attribute name="playerHeightInches" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="playerIdentifier" optional="YES" attributeType="Decimal" defaultValueString="0" syncable="YES"/>
+        <attribute name="playerLastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="playerNumber" optional="YES" attributeType="Decimal" defaultValueString="0" syncable="YES"/>
+        <attribute name="playerPhotoURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="playerPositionName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="playerStatusString" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="playerTeamAbbreviation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="playerUpcomingGameOpponent" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="playerUpcomingGameWeek" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="playerUpcomingOpponentPositionRank" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="playerUpcomingOpponentRank" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="playerWeight" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+    </entity>
+    <entity name="GTTeamObject" representedClassName="GTTeamObject" syncable="YES">
+        <attribute name="teamAbbreviation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="teamFantasy" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="teamImagePath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="teamName" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="GTTeamObject" positionX="-54" positionY="-9" width="128" height="103"/>
+        <element name="GTPlayerObject" positionX="-36" positionY="27" width="128" height="375"/>
+    </elements>
+</model>

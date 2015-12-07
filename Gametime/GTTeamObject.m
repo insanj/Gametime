@@ -11,10 +11,10 @@
 
 @implementation GTTeamObject
 
-@synthesize teamName = _teamName, teamImagePath = _teamImagePath, teamAbbreviation = _teamAbbreviation;
+@synthesize teamName = _teamName, teamImagePath = _teamImagePath, teamAbbreviation = _teamAbbreviation, teamFantasy = _teamFantasy;
 
 + (instancetype)teamWithName:(NSString *)team abbreviation:(NSString *)abbreviation imagePath:(NSString *)imagePath {
-    GTTeamObject *teamObject = [[GTTeamObject alloc] init];
+    GTTeamObject *teamObject = [GTTeamObject create];
     teamObject.teamName = team;
     teamObject.teamImagePath = imagePath;
     teamObject.teamAbbreviation = abbreviation;
@@ -22,7 +22,7 @@
 }
 
 + (instancetype)teamWithName:(NSString *)team abbreviation:(NSString *)abbreviation image:(UIImage *)image {
-    GTTeamObject *teamObject = [[GTTeamObject alloc] init];
+    GTTeamObject *teamObject = [GTTeamObject create];
     teamObject.teamName = team;
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -36,6 +36,7 @@
 
 + (instancetype)fantasyTeamWithName:(NSString *)team abbreviation:(NSString *)abbreviation image:(UIImage *)image {
     GTTeamObject *teamObject = [GTTeamObject create];
+    [teamObject setValue:@(YES) forKey:@"teamFantasy"];
     teamObject.teamName = team;
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -63,12 +64,12 @@
 }
 */
 
-- (BOOL)isEqual:(id)object {
+/*- (BOOL)isEqual:(id)object {
     if ([object isKindOfClass:[self class]]) {
         return [((GTTeamObject *)object).teamAbbreviation isEqualToString:self.teamAbbreviation];
     }
     
     return NO;
-}
+}*/
 
 @end

@@ -14,7 +14,7 @@
 @synthesize playerPhotoURL = _playerPhotoURL, playerTeamAbbreviation = _playerTeamAbbreviation, playerFirstName = _playerFirstName, playerLastName = _playerLastName, playerFullName = _playerFullName, playerPositionName = _playerPositionName, playerStatusString = _playerStatusString, playerCollegeName = _playerCollegeName, playerIdentifier = _playerIdentifier, playerNumber = _playerNumber, playerHeightFeet = _playerHeightFeet, playerHeightInches = _playerHeightInches, playerWeight = _playerWeight, playerExperienceString = _playerExperienceString, playerAge = _playerAge, playerActive = _playerActive, playerByeWeek = _playerByeWeek, playerUpcomingGameWeek = _playerUpcomingGameWeek, playerUpcomingGameOpponent = _playerUpcomingGameOpponent, playerUpcomingOpponentRank = _playerUpcomingOpponentRank, playerUpcomingOpponentPositionRank = _playerUpcomingOpponentPositionRank, playerFantasyPoints = _playerFantasyPoints;
 
 + (instancetype)playerWithDictionaryRepresentation:(NSDictionary *)dictionary {
-    GTPlayerObject *playerObject = [GTPlayerObject new];
+    GTPlayerObject *playerObject = [GTPlayerObject create];
     [playerObject safeSetURL:[NSURL URLWithString:dictionary[@"PhotoUrl"]] forKey:@"playerPhotoURL"];
     
     [playerObject safeSetString:dictionary[@"Team"] forKey:@"playerTeamAbbreviation"];
