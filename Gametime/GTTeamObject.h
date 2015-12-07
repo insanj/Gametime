@@ -7,17 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ObjectiveRecord.h"
 
-@interface GTTeamObject : NSObject
+@interface GTTeamObject : NSManagedObject
 
-@property (strong, nonatomic) NSString *teamName, *teamAbbreviation;
+@property (strong, nonatomic) NSString *teamName, *teamAbbreviation, *teamImagePath;
 
-@property (strong, nonatomic) UIImage *teamImage;
++ (instancetype)teamWithName:(NSString *)team abbreviation:(NSString *)abbreviation imagePath:(NSString *)teamImagePath;
 
-+ (instancetype)teamWithName:(NSString *)team abbreviation:(NSString *)abbreviation image:(UIImage *)image;
++ (instancetype)teamWithName:(NSString *)team abbreviation:(NSString *)abbreviation image:(UIImage *)teamImage;
 
-+ (instancetype)teamWithDictionaryRepresentation:(NSDictionary *)dictionary;
++ (instancetype)fantasyTeamWithName:(NSString *)team abbreviation:(NSString *)abbreviation image:(UIImage *)teamImage;
 
-- (NSDictionary *)dictionaryRepresentation;
+// + (instancetype)teamWithDictionaryRepresentation:(NSDictionary *)dictionary;
+
+// - (NSDictionary *)dictionaryRepresentation;
 
 @end

@@ -26,6 +26,9 @@ PODS:
   - DateTools (1.7.0)
   - JGProgressHUD (1.3.1)
   - MGSwipeTableCell (1.5.3)
+  - ObjectiveRecord (1.5.0):
+    - ObjectiveSugar
+  - ObjectiveSugar (1.1.0)
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
@@ -39,6 +42,7 @@ DEPENDENCIES:
   - DateTools
   - JGProgressHUD
   - MGSwipeTableCell
+  - ObjectiveRecord
   - SDWebImage
   - SSKeychain
 
@@ -50,6 +54,8 @@ SPEC CHECKSUMS:
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
   JGProgressHUD: 153053a21d81208cb5f659691996bcefce6a9885
   MGSwipeTableCell: 5ae3b9a15efda26b201adc8676b24040febe6ff6
+  ObjectiveRecord: f290d17272e476b3c881300910e98284200c54b6
+  ObjectiveSugar: a6a25f23d657c19df0a0b972466d5b5ca9f5295c
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   SSKeychain: 3f42991739c6c60a9cf1bbd4dff6c0d3694bcf3d
 

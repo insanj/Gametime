@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ObjectiveRecord.h"
 
-@interface GTPlayerObject : NSObject
+@interface GTPlayerObject : NSManagedObject
 
 @property (strong, nonatomic, readonly) NSURL *playerPhotoURL;
 

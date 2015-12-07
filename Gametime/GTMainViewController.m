@@ -10,10 +10,10 @@
 #import "GTTeamTableViewCell.h"
 #import "GTPlaceholderBackgroundView.h"
 #import "GTTeamObject.h"
-#import "GTDefaultsManager.h"
 #import "GTAddTeamViewController.h"
 #import "GTNavigationController.h"
 #import "GTTeamViewController.h"
+#import "UIImage+Gametime.h"
 
 @interface GTMainViewController ()
 
@@ -68,7 +68,7 @@
 #pragma mark - setup
 
 - (void)setupGametimeTeams {
-    _gameTimeTeams = [GTDefaultsManager savedTeams];
+    _gameTimeTeams = [GTTeamObject allWithOrder:@"teamName"];
     
     [self.tableView reloadData];
     [self.refreshControl endRefreshing];
@@ -165,7 +165,7 @@ static NSString *kGametimeTeamTableCellIdentifier = @"GametimeTeamTableCellIdent
         
     GTTeamTableViewCell *teamCell = [tableView dequeueReusableCellWithIdentifier:kGametimeTeamTableCellIdentifier forIndexPath:indexPath];
     GTTeamObject *team = indexPath.section == 0 ? _gameTimeTeams[indexPath.row] : _gameTimeNFLTeams[indexPath.row];
-    teamCell.teamAvatarView.image = team.teamImage;
+    teamCell.teamAvatarView.image = [UIImage imageWithContentsOfFile:team.teamImagePath];
     teamCell.teamTitleLabel.text = team.teamName;
     teamCell.teamDetailLabel.text = [NSString stringWithFormat:@"%@  ", team.teamAbbreviation];
     return teamCell;
@@ -195,7 +195,7 @@ static NSString *kGametimeTeamTableCellIdentifier = @"GametimeTeamTableCellIdent
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     GTTeamObject *team = _gameTimeTeams[indexPath.row];
-    [GTDefaultsManager deleteSavedTeam:team];
+    [team delete];
     [self setupGametimeTeams];
 }
 

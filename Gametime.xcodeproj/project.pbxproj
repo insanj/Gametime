@@ -18,7 +18,6 @@
 		235F13B91C0792220070F899 /* GTTeamTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F13B81C0792220070F899 /* GTTeamTableViewCell.m */; };
 		235F13BC1C0795060070F899 /* GTPlaceholderBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F13BB1C0795060070F899 /* GTPlaceholderBackgroundView.m */; };
 		235F13BF1C0797BF0070F899 /* GTTeamObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F13BE1C0797BF0070F899 /* GTTeamObject.m */; };
-		235F13C61C07A3F40070F899 /* GTDefaultsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F13C51C07A3F40070F899 /* GTDefaultsManager.m */; };
 		235F13C91C07A4ED0070F899 /* GTAddTeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F13C81C07A4ED0070F899 /* GTAddTeamViewController.m */; };
 		235F13CC1C07BE850070F899 /* GTTeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F13CB1C07BE850070F899 /* GTTeamViewController.m */; };
 		235F13CF1C07C0FB0070F899 /* GTPlayerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F13CE1C07C0FB0070F899 /* GTPlayerObject.m */; };
@@ -72,8 +71,6 @@
 		235F13BB1C0795060070F899 /* GTPlaceholderBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTPlaceholderBackgroundView.m; sourceTree = "<group>"; };
 		235F13BD1C0797BF0070F899 /* GTTeamObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTTeamObject.h; sourceTree = "<group>"; };
 		235F13BE1C0797BF0070F899 /* GTTeamObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTTeamObject.m; sourceTree = "<group>"; };
-		235F13C41C07A3F40070F899 /* GTDefaultsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTDefaultsManager.h; sourceTree = "<group>"; };
-		235F13C51C07A3F40070F899 /* GTDefaultsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTDefaultsManager.m; sourceTree = "<group>"; };
 		235F13C71C07A4ED0070F899 /* GTAddTeamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTAddTeamViewController.h; sourceTree = "<group>"; };
 		235F13C81C07A4ED0070F899 /* GTAddTeamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTAddTeamViewController.m; sourceTree = "<group>"; };
 		235F13CA1C07BE850070F899 /* GTTeamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTTeamViewController.h; sourceTree = "<group>"; };
@@ -226,8 +223,6 @@
 		235F13C31C0797DD0070F899 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
-				235F13C41C07A3F40070F899 /* GTDefaultsManager.h */,
-				235F13C51C07A3F40070F899 /* GTDefaultsManager.m */,
 				235F13BD1C0797BF0070F899 /* GTTeamObject.h */,
 				235F13BE1C0797BF0070F899 /* GTTeamObject.m */,
 				235F13CD1C07C0FB0070F899 /* GTPlayerObject.h */,
@@ -424,7 +419,6 @@
 				23057D061C078AAD009DECF6 /* GTAppDelegate.m in Sources */,
 				23057D361C078E0E009DECF6 /* GTNavigationController.m in Sources */,
 				235F13D21C07C6C30070F899 /* GTPlayerTableViewCell.m in Sources */,
-				235F13C61C07A3F40070F899 /* GTDefaultsManager.m in Sources */,
 				235F13BF1C0797BF0070F899 /* GTTeamObject.m in Sources */,
 				23057D031C078AAD009DECF6 /* main.m in Sources */,
 				235F13C91C07A4ED0070F899 /* GTAddTeamViewController.m in Sources */,

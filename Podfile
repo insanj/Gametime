@@ -13,6 +13,7 @@ pod 'CWStatusBarNotification'
 pod 'DateTools'
 pod 'JGProgressHUD'
 pod 'MGSwipeTableCell'
+pod 'ObjectiveRecord'
 pod 'SDWebImage'
 pod 'SSKeychain'
 

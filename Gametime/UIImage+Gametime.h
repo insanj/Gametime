@@ -12,6 +12,8 @@
 
 - (instancetype)imageWithWidth:(CGFloat)width;
 
-- (instancetype)imageWithWidth:(CGFloat)width;
+- (instancetype)imageWithSize:(CGSize)size;
+
+- (UIColor *)averageColorInImage;
 
 @end

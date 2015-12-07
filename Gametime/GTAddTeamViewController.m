@@ -8,7 +8,6 @@
 
 #import "GTAddTeamViewController.h"
 #import "GTTeamObject.h"
-#import "GTDefaultsManager.h"
 #import "CompactConstraint.h"
 #import "GTMainViewController.h"
 
@@ -51,12 +50,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    NSMutableArray *abbreviations = [NSMutableArray array];
-    for (GTTeamObject *team in [GTDefaultsManager savedTeams]) {
-        [abbreviations addObject:team.teamAbbreviation];
-    }
-    
-    _teamExistingAbbreviations = abbreviations;
+    _teamExistingAbbreviations = [GTTeamObject allWithOrder:@"teamAbbreviation"];
 }
 
 #pragma mark - actions
@@ -83,8 +77,9 @@
     }
     
     else {
-        GTTeamObject *addTeamObject = [GTTeamObject teamWithName:_teamNameTextField.text abbreviation:_teamAbbreviationTextField.text image:_teamImage];
-        [GTDefaultsManager addSavedTeam:addTeamObject];
+        GTTeamObject *addTeamObject = [GTTeamObject fantasyTeamWithName:_teamNameTextField.text abbreviation:_teamAbbreviationTextField.text image:_teamImage];
+        [addTeamObject save];
+        
         [[NSNotificationCenter defaultCenter] postNotificationName:kGametimeRefreshTeamNotificationName object:nil];
         [self dismissViewControllerAnimated:YES completion:NULL];
     }

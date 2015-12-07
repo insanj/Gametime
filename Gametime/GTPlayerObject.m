@@ -11,6 +11,8 @@
 
 @implementation GTPlayerObject
 
+@synthesize playerPhotoURL = _playerPhotoURL, playerTeamAbbreviation = _playerTeamAbbreviation, playerFirstName = _playerFirstName, playerLastName = _playerLastName, playerFullName = _playerFullName, playerPositionName = _playerPositionName, playerStatusString = _playerStatusString, playerCollegeName = _playerCollegeName, playerIdentifier = _playerIdentifier, playerNumber = _playerNumber, playerHeightFeet = _playerHeightFeet, playerHeightInches = _playerHeightInches, playerWeight = _playerWeight, playerExperienceString = _playerExperienceString, playerAge = _playerAge, playerActive = _playerActive, playerByeWeek = _playerByeWeek, playerUpcomingGameWeek = _playerUpcomingGameWeek, playerUpcomingGameOpponent = _playerUpcomingGameOpponent, playerUpcomingOpponentRank = _playerUpcomingOpponentRank, playerUpcomingOpponentPositionRank = _playerUpcomingOpponentPositionRank, playerFantasyPoints = _playerFantasyPoints;
+
 + (instancetype)playerWithDictionaryRepresentation:(NSDictionary *)dictionary {
     GTPlayerObject *playerObject = [GTPlayerObject new];
     [playerObject safeSetURL:[NSURL URLWithString:dictionary[@"PhotoUrl"]] forKey:@"playerPhotoURL"];
@@ -55,6 +57,36 @@
     }
     
     return playerObject;
+}
+
++ (NSDictionary *)mappings {
+    return @{@"PhotoUrl": @"playerPhotoURL",
+             @"Team": @"playerTeamAbbreviation",
+             @"FirstName": @"playerFirstName",
+             @"LastName": @"playerLastName",
+             @"Name" : @"playerFullName",
+             @"Position" : @"playerPositionName",
+             @"Status" : @"playerStatusString",
+             @"College" : @"playerCollegeName",
+             @"ExperienceString" : @"playerExperienceString",
+
+             @"FantasyPoints" : @"playerFantasyPoints",
+
+             @"PlayerID" : @"playerIdentifier",
+             @"Number" : @"playerNumber",
+             @"HeightFeet" : @"playerHeightFeet",
+             @"HeightInches" : @"playerHeightInches",
+             @"Weight" : @"playerWeight",
+             @"Age" : @"playerAge",
+             
+             @"Active" : @"playerActive",
+             
+             @"ByeWeek" : @"playerByeWeek",
+             @"UpcomingGameWeek" : @"playerUpcomingGameWeek",
+             @"UpcomingGameOpponent" : @"playerUpcomingGameOpponent",
+             @"UpcomingOpponentRank" : @"playerUpcomingOpponentRank",
+             @"UpcomingOpponentPositionRank" : @"playerUpcomingOpponentPositionRank",
+             @"UpcomingGameOpponent" : @"playerUpcomingGameOpponent"};
 }
 
 - (NSDictionary *)dictionaryRepresentation {

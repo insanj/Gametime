@@ -44,6 +44,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>ObjectiveRecord.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ObjectiveSugar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Gametime.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,27 +72,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0B986C49975CA9996EA8F84D67F03021</key>
+		<key>31AD1DE438E891D813151F8457C9C59F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1AFBCFF169F673D04890AC9B2F305D3C</key>
+		<key>3AAD5AAA6BF8E46A7A973AE2BAA798AD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>223FD7561480B1E6621223FDECE220DA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>444B0A23811F447A31356645DB76C30F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>528C271148D52B0CA24F4561B2C8153E</key>
+		<key>525B3EC124F04490432DC5F35C47A189</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,27 +92,47 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5ED84521F2A397AD4C0A7C2EB06A6044</key>
+		<key>5867F327CD4A0C520640D840E65B4C14</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>806558A5E88EDAA296A441521425969B</key>
+		<key>657C978C302B1CBBD2C60A0F45BFAD0B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CC9495474209A539FFC8FD9D0794AB31</key>
+		<key>6FB4933E596618D3DF3B61D8FD2D07A6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D7E26D425EA41FE2C8E24DD57E7C8D7E</key>
+		<key>8FC4E346E42AC46CDD638B1E5795D989</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CA22234F978280FF8DE6F553244A1B68</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E80BB3C0E18E3416F9788E6524975A06</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>EA3931D121EE165685E6E6C251F033C0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F432425F7B1DE080E47417FC6B81189E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F5D69FE588CD43246ADDC7C8568D750D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

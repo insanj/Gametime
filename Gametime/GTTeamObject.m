@@ -11,42 +11,57 @@
 
 @implementation GTTeamObject
 
+@synthesize teamName = _teamName, teamImagePath = _teamImagePath, teamAbbreviation = _teamAbbreviation;
 
-- (void)setTeamImage:(UIImage *)teamImage {
-    _teamImage = [teamImage imageWithWidth:300.0];
++ (instancetype)teamWithName:(NSString *)team abbreviation:(NSString *)abbreviation imagePath:(NSString *)imagePath {
+    GTTeamObject *teamObject = [[GTTeamObject alloc] init];
+    teamObject.teamName = team;
+    teamObject.teamImagePath = imagePath;
+    teamObject.teamAbbreviation = abbreviation;
+    return teamObject;
 }
 
 + (instancetype)teamWithName:(NSString *)team abbreviation:(NSString *)abbreviation image:(UIImage *)image {
     GTTeamObject *teamObject = [[GTTeamObject alloc] init];
     teamObject.teamName = team;
-    teamObject.teamImage = image;
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *filePath = [NSString stringWithFormat:@"%@%@.jpg", [paths firstObject], abbreviation];
+    [UIImageJPEGRepresentation(image, 1.0) writeToFile:filePath atomically:YES];
+    
+    teamObject.teamImagePath = filePath;
     teamObject.teamAbbreviation = abbreviation;
     return teamObject;
 }
 
++ (instancetype)fantasyTeamWithName:(NSString *)team abbreviation:(NSString *)abbreviation image:(UIImage *)image {
+    GTTeamObject *teamObject = [GTTeamObject create];
+    teamObject.teamName = team;
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *filePath = [NSString stringWithFormat:@"%@%@.jpg", [paths firstObject], abbreviation];
+    [UIImageJPEGRepresentation(image, 1.0) writeToFile:filePath atomically:YES];
+    
+    teamObject.teamImagePath = filePath;
+    teamObject.teamAbbreviation = abbreviation;
+    return teamObject;
+}
+
+/*
 + (instancetype)teamWithDictionaryRepresentation:(NSDictionary *)dictionary {
     GTTeamObject *teamObject = [[GTTeamObject alloc] init];
     teamObject.teamName = dictionary[@"teamName"];
-    
-    NSData *savedImageData = dictionary[@"teamImage"];
-    teamObject.teamImage = savedImageData ? [UIImage imageWithData:savedImageData] : nil;
-    
+    teamObject.teamImagePath = dictionary[@"teamImage"];
     teamObject.teamAbbreviation = dictionary[@"teamAbbreviation"];
     return teamObject;
 }
 
 - (NSDictionary *)dictionaryRepresentation {
-    if (_teamImage) {
-        return @{@"teamName" : _teamName,
-                 @"teamImage" : UIImagePNGRepresentation(_teamImage),
-                 @"teamAbbreviation" : _teamAbbreviation};
-    }
-    
-    else {
-        return @{@"teamName" : _teamName,
-                 @"teamAbbreviation" : _teamAbbreviation};
-    }
+    return @{@"teamName" : _teamName,
+             @"teamImage" : _teamImagePath,
+             @"teamAbbreviation" : _teamAbbreviation};
 }
+*/
 
 - (BOOL)isEqual:(id)object {
     if ([object isKindOfClass:[self class]]) {
