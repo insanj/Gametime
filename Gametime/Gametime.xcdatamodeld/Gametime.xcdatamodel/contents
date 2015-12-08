@@ -27,7 +27,7 @@
     <entity name="GTTeamObject" representedClassName="GTTeamObject" syncable="YES">
         <attribute name="teamAbbreviation" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="teamFantasy" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="teamImagePath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="teamImageData" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="teamName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>

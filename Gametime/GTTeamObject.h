@@ -11,18 +11,14 @@
 
 @interface GTTeamObject : NSManagedObject
 
-@property (strong, nonatomic) NSString *teamName, *teamAbbreviation, *teamImagePath;
+@property (strong, nonatomic) NSString *teamName, *teamAbbreviation;
 
-@property (nonatomic, readonly) BOOL teamFantasy;
+@property (strong, nonatomic) NSData *teamImageData;
 
-+ (instancetype)teamWithName:(NSString *)team abbreviation:(NSString *)abbreviation imagePath:(NSString *)teamImagePath;
+@property (nonatomic, readwrite) BOOL teamFantasy;
 
-+ (instancetype)teamWithName:(NSString *)team abbreviation:(NSString *)abbreviation image:(UIImage *)teamImage;
++ (instancetype)teamWithName:(NSString *)team abbreviation:(NSString *)abbreviation image:(UIImage *)image;
 
-+ (instancetype)fantasyTeamWithName:(NSString *)team abbreviation:(NSString *)abbreviation image:(UIImage *)teamImage;
-
-// + (instancetype)teamWithDictionaryRepresentation:(NSDictionary *)dictionary;
-
-// - (NSDictionary *)dictionaryRepresentation;
++ (instancetype)fantasyTeamWithName:(NSString *)team abbreviation:(NSString *)abbreviation image:(UIImage *)image;
 
 @end

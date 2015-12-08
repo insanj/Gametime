@@ -16,6 +16,7 @@
 		23057D271C078AAD009DECF6 /* GametimeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23057D261C078AAD009DECF6 /* GametimeUITests.m */; };
 		23057D361C078E0E009DECF6 /* GTNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23057D351C078E0E009DECF6 /* GTNavigationController.m */; };
 		23369EBA1C164F0B0027209D /* Gametime.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 23369EB81C164F0B0027209D /* Gametime.xcdatamodeld */; };
+		23369EBD1C165B1E0027209D /* GTSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23369EBC1C165B1E0027209D /* GTSettingsViewController.m */; };
 		235F13B91C0792220070F899 /* GTTeamTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F13B81C0792220070F899 /* GTTeamTableViewCell.m */; };
 		235F13BC1C0795060070F899 /* GTPlaceholderBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F13BB1C0795060070F899 /* GTPlaceholderBackgroundView.m */; };
 		235F13BF1C0797BF0070F899 /* GTTeamObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F13BE1C0797BF0070F899 /* GTTeamObject.m */; };
@@ -67,6 +68,8 @@
 		23057D341C078E0E009DECF6 /* GTNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTNavigationController.h; sourceTree = "<group>"; };
 		23057D351C078E0E009DECF6 /* GTNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTNavigationController.m; sourceTree = "<group>"; };
 		23369EB91C164F0B0027209D /* Gametime.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Gametime.xcdatamodel; sourceTree = "<group>"; };
+		23369EBB1C165B1E0027209D /* GTSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTSettingsViewController.h; sourceTree = "<group>"; };
+		23369EBC1C165B1E0027209D /* GTSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTSettingsViewController.m; sourceTree = "<group>"; };
 		235F13B71C0792220070F899 /* GTTeamTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTTeamTableViewCell.h; sourceTree = "<group>"; };
 		235F13B81C0792220070F899 /* GTTeamTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTTeamTableViewCell.m; sourceTree = "<group>"; };
 		235F13BA1C0795060070F899 /* GTPlaceholderBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTPlaceholderBackgroundView.h; sourceTree = "<group>"; };
@@ -219,6 +222,8 @@
 				235F13C81C07A4ED0070F899 /* GTAddTeamViewController.m */,
 				235F13CA1C07BE850070F899 /* GTTeamViewController.h */,
 				235F13CB1C07BE850070F899 /* GTTeamViewController.m */,
+				23369EBB1C165B1E0027209D /* GTSettingsViewController.h */,
+				23369EBC1C165B1E0027209D /* GTSettingsViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -416,6 +421,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23369EBD1C165B1E0027209D /* GTSettingsViewController.m in Sources */,
 				235F13CC1C07BE850070F899 /* GTTeamViewController.m in Sources */,
 				23369EBA1C164F0B0027209D /* Gametime.xcdatamodeld in Sources */,
 				23057D091C078AAD009DECF6 /* GTMainViewController.m in Sources */,

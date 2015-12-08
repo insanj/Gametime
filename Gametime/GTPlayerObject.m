@@ -15,8 +15,7 @@
 
 + (instancetype)playerWithDictionaryRepresentation:(NSDictionary *)dictionary {
     GTPlayerObject *playerObject = [GTPlayerObject create];
-    [playerObject safeSetURL:[NSURL URLWithString:dictionary[@"PhotoUrl"]] forKey:@"playerPhotoURL"];
-    
+    [playerObject safeSetString:dictionary[@"PhotoUrl"] forKey:@"playerPhotoURL"];
     [playerObject safeSetString:dictionary[@"Team"] forKey:@"playerTeamAbbreviation"];
     [playerObject safeSetString:dictionary[@"FirstName"] forKey:@"playerFirstName"];
     [playerObject safeSetString:dictionary[@"LastName"] forKey:@"playerLastName"];
@@ -90,7 +89,7 @@
 }
 
 - (NSDictionary *)dictionaryRepresentation {
-    return @{@"PhotoUrl" : _playerPhotoURL.absoluteString,
+    return @{@"PhotoUrl" : _playerPhotoURL,
              @"Team" : _playerTeamAbbreviation,
              @"FirstName" : _playerFirstName,
              @"LastName" : _playerLastName,
@@ -120,8 +119,8 @@
 }
 
 - (void)mergeWithPlayer:(GTPlayerObject *)player {
-    if (self.playerPhotoURL.absoluteString.length == 0) {
-        [self safeSetURL:player.playerPhotoURL forKey:@"playerPhotoURL"];
+    if (self.playerPhotoURL.length == 0) {
+        [self safeSetString:player.playerPhotoURL forKey:@"playerPhotoURL"];
     }
     
     // [playerObject safeSetString:dictionary[@"Team"] forKey:@"playerTeamAbbreviation"];

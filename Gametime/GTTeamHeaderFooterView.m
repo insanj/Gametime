@@ -112,7 +112,7 @@
 - (void)setTeam:(GTTeamObject *)team {
     _team = team;
     
-    UIImage *teamImage = [UIImage imageWithContentsOfFile:team.teamImagePath];
+    UIImage *teamImage = [UIImage imageWithData:team.teamImageData];
     _teamAvatarImageView.image = teamImage;
     
     UIColor *averageColor = teamImage ? [teamImage averageColorInImage] : [UIColor clearColor];

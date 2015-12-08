@@ -14,8 +14,6 @@
 
 @property (nonatomic, readwrite) NSInteger teamSeasonWeekNumber; // 2015, 0 means all season long
 
-- (instancetype)initWithFantasyTeam:(GTTeamObject *)team;
-
-- (instancetype)initWithNFLTeam:(GTTeamObject *)team;
+- (instancetype)initWithTeam:(GTTeamObject *)team;
 
 @end

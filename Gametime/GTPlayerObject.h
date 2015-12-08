@@ -11,7 +11,7 @@
 
 @interface GTPlayerObject : NSManagedObject
 
-@property (strong, nonatomic, readonly) NSURL *playerPhotoURL;
+@property (strong, nonatomic, readonly) NSString *playerPhotoURL;
 
 @property (strong, nonatomic, readonly) NSString *playerTeamAbbreviation, *playerFirstName, *playerLastName, *playerFullName, *playerPositionName, *playerStatusString, *playerCollegeName, *playerExperienceString;
 

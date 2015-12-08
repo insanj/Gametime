@@ -119,7 +119,7 @@
 - (void)setPlayer:(GTPlayerObject *)player {
     _player = player;
     
-    [_playerImageView sd_setImageWithURL:_player.playerPhotoURL placeholderImage:nil];
+    [_playerImageView sd_setImageWithURL:[NSURL URLWithString:_player.playerPhotoURL] placeholderImage:nil];
     
     _playerNameLabel.text = [NSString stringWithFormat:@"%@ #%@", _player.playerFullName, @(_player.playerNumber)];
     _playerPositionLabel.text = _player.playerPositionName;

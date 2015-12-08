@@ -15,8 +15,6 @@
 
 @interface GTTeamViewController ()
 
-@property (nonatomic, readwrite) BOOL teamIsFantasy;
-
 @property (strong, nonatomic) GTTeamObject *team;
 
 @property (strong, nonatomic) NSArray *teamPlayers;
@@ -25,22 +23,10 @@
 
 @implementation GTTeamViewController
 
-- (instancetype)initWithFantasyTeam:(GTTeamObject *)team {
+- (instancetype)initWithTeam:(GTTeamObject *)team {
     self = [super init];
     
     if (self) {
-        _teamIsFantasy = YES;
-        _team = team;
-    }
-    
-    return self;
-}
-
-- (instancetype)initWithNFLTeam:(GTTeamObject *)team {
-    self = [super init];
-    
-    if (self) {
-        _teamIsFantasy = NO;
         _team = team;
     }
     
@@ -54,10 +40,7 @@
     self.tableView.rowHeight = 70.0;
     self.tableView.tableFooterView = [UIView new];
     
-    GTPlaceholderBackgroundView *placeholderBackgroundView = [[GTPlaceholderBackgroundView alloc] initWithFrame:self.tableView.frame];
-    placeholderBackgroundView.placeholderTitleLabel.text = [@"Loading the " stringByAppendingString:_team.teamName];
-    placeholderBackgroundView.placeholderDetailLabel.text = @"This should only take a moment. Retrieving NFL data from the Fantasy Football API...";
-    self.tableView.backgroundView = placeholderBackgroundView;
+    [self setupBackgroundView];
     
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(refreshControlValueChanged:) forControlEvents:UIControlEventValueChanged];
@@ -90,9 +73,26 @@
 
 #pragma mark - setup
 
+- (void)setupBackgroundView {
+    if (!_team.teamFantasy) {
+        GTPlaceholderBackgroundView *placeholderBackgroundView = [[GTPlaceholderBackgroundView alloc] initWithFrame:self.tableView.frame];
+        placeholderBackgroundView.placeholderTitleLabel.text = [@"Loading the " stringByAppendingString:_team.teamName];
+        placeholderBackgroundView.placeholderDetailLabel.text = @"This should only take a moment. Retrieving NFL data from the Fantasy Football API...";
+        self.tableView.backgroundView = placeholderBackgroundView;
+    }
+    
+    else {
+        GTPlaceholderBackgroundView *placeholderBackgroundView = [[GTPlaceholderBackgroundView alloc] initWithFrame:self.tableView.frame];
+        placeholderBackgroundView.placeholderTitleLabel.text = @"Fantasy Team";
+        placeholderBackgroundView.placeholderDetailLabel.text = @"Add players by tapping the + button while searching or browsing by team.";
+        self.tableView.backgroundView = placeholderBackgroundView;
+ 
+    }
+}
+
 - (void)setupFantasyData {
-    if (_teamIsFantasy) {
-        
+    if (_team.teamFantasy) {
+        [self setupFantasyTeamData];
     }
     
     else if (_teamSeasonWeekNumber == 0) {
@@ -181,6 +181,21 @@
         [self.tableView reloadData];
         [self.refreshControl endRefreshing];
     }];
+}
+
+- (void)setupFantasyTeamData {
+    
+}
+
+- (void)setupFantasyTeamWeeklyData {
+
+}
+
+- (void)setupFantasyTeamSeasonData {
+    _teamPlayers = [GTPlayerObject where:@{@"playerTeamAbbreviation" : _team.teamAbbreviation}];
+
+    [self.tableView reloadData];
+    [self.refreshControl endRefreshing];
 }
 
 #pragma mark - table view

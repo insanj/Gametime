@@ -14,6 +14,7 @@
 #import "GTNavigationController.h"
 #import "GTTeamViewController.h"
 #import "UIImage+Gametime.h"
+#import "GTSettingsViewController.h"
 
 @interface GTMainViewController ()
 
@@ -40,6 +41,8 @@
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(refreshControlValueChanged:) forControlEvents:UIControlEventValueChanged];
     
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings"] style:UIBarButtonItemStyleDone target:self action:@selector(settingsBarButtonItemTapped)];
+
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addBarButtonItemTapped)];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupGametimeTeams) name:kGametimeRefreshTeamNotificationName object:nil];
@@ -133,6 +136,13 @@
     [self presentViewController:modalNavigationController animated:YES completion:NULL];
 }
 
+- (void)settingsBarButtonItemTapped {
+    GTSettingsViewController *settingsViewController = [[GTSettingsViewController alloc] init];
+    GTNavigationController *modalNavigationController = [[GTNavigationController alloc] initWithRootViewController:settingsViewController];
+    [self presentViewController:modalNavigationController animated:YES completion:NULL];
+
+}
+
 #pragma mark - table view
 
 static NSString *kGametimeTeamTableCellIdentifier = @"GametimeTeamTableCellIdentifier";
@@ -171,7 +181,8 @@ static NSString *kGametimeTeamTableCellIdentifier = @"GametimeTeamTableCellIdent
         
     GTTeamTableViewCell *teamCell = [tableView dequeueReusableCellWithIdentifier:kGametimeTeamTableCellIdentifier forIndexPath:indexPath];
     GTTeamObject *team = indexPath.section == 0 ? _gameTimeTeams[indexPath.row] : _gameTimeNFLTeams[indexPath.row];
-    teamCell.teamAvatarView.image = [UIImage imageWithContentsOfFile:team.teamImagePath];
+    // NSLog(@"%@, %@", team.teamName, team.teamImageData);
+    teamCell.teamAvatarView.image = [UIImage imageWithData:team.teamImageData];
     teamCell.teamTitleLabel.text = team.teamName;
     teamCell.teamDetailLabel.text = [NSString stringWithFormat:@"%@  ", team.teamAbbreviation];
     return teamCell;
@@ -186,7 +197,7 @@ static NSString *kGametimeTeamTableCellIdentifier = @"GametimeTeamTableCellIdent
     
     else if (indexPath.section == 1) {
         GTTeamObject *team = _gameTimeNFLTeams[indexPath.row];
-        GTTeamViewController *nflTeamViewController = [[GTTeamViewController alloc] initWithNFLTeam:team];
+        GTTeamViewController *nflTeamViewController = [[GTTeamViewController alloc] initWithTeam:team];
         [self.navigationController pushViewController:nflTeamViewController animated:YES];
     }
 }
