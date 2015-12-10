@@ -46,6 +46,7 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addBarButtonItemTapped)];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupGametimeTeams) name:kGametimeRefreshTeamNotificationName object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setupNFLTeams) name:kGametimeRefreshTeamNotificationName object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -71,14 +72,14 @@
 #pragma mark - setup
 
 - (void)setupGametimeTeams {
-    _gameTimeTeams = [GTTeamObject where:@{@"teamFantasy" : @(YES)}];
+    _gameTimeTeams = [GTTeamObject where:@{@"teamFantasy" : @(YES)} order:@"teamAbbreviation"];
     
     [self.tableView reloadData];
     [self.refreshControl endRefreshing];
 }
 
 - (void)setupNFLTeams {
-    _gameTimeNFLTeams = [GTTeamObject where:@{@"teamFantasy" : @(NO)}];
+    _gameTimeNFLTeams = [GTTeamObject where:@{@"teamFantasy" : @(NO)} order:@"teamAbbreviation"];
 
     if (!_gameTimeNFLTeams || _gameTimeNFLTeams.count == 0) {
         GTTeamObject *cardinals = [GTTeamObject teamWithName:@"Arizona Cardinals" abbreviation:@"ARI" image:[UIImage imageNamed:@"cardinals"]];
